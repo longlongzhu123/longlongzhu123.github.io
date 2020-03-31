@@ -28,7 +28,7 @@
 <meta property="og:description" content="这个页面是用来被别的页面跳转的，放一些不太好归类的数学知识在这里。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-16T06:26:49.000Z">
-<meta property="article:modified_time" content="2020-03-30T12:58:57.659Z">
+<meta property="article:modified_time" content="2020-03-31T07:47:28.989Z">
 <meta property="article:author" content="longlongzhu123">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
@@ -177,7 +177,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-30 20:58:57" itemprop="dateModified" datetime="2020-03-30T20:58:57+08:00">2020-03-30</time>
+                <time title="修改时间：2020-03-31 15:47:28" itemprop="dateModified" datetime="2020-03-31T15:47:28+08:00">2020-03-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -203,70 +203,106 @@
 
       
         <blockquote>
-<p>  这个页面是用来被别的页面跳转的，放一些不太好归类的数学知识在这里。</p>
-  <a id="more"></a>
-<p>  链接跳转的方法是 <code>[[Link↗]](../math-notes/#note-编号)</code>。Example: <a href="#note-1">[Link↗]</a></p>
+<p>这个页面是用来被别的页面跳转的，放一些不太好归类的数学知识在这里。</p>
+<p><a id="more"></a></p>
+<p>链接跳转的方法是 <code>[[Link↗]](../math-notes/#Note-编号)</code>。Example: <a href="#Note-1">[Link↗]</a></p>
 </blockquote>
-<h1 id="Note-1"><a href="#Note-1" class="headerlink" title="Note-1"></a>Note-1</h1><p>$\DeclareMathOperator {\e} {e}$<strong>高维前缀和</strong></p>
+<h1 id="note-1">Note-1</h1>
+<p><span class="math inline">\(\DeclareMathOperator {\e} {e}\)</span><strong>高维前缀和</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// len 表示 log2(n)，即 n = (1 &lt;&lt; len)。</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; len; ++k)</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">    <span class="keyword">if</span> (i &amp; (<span class="number">1</span> &lt;&lt; k))</span><br><span class="line">      a[i] = (a[i] + a[i ^ (<span class="number">1</span> &lt;&lt; k)]) % kMod;</span><br></pre></td></tr></table></figure>
-<h1 id="Note-2"><a href="#Note-2" class="headerlink" title="Note-2"></a>Note-2</h1><p><strong>求导、求积分</strong></p>
-<script type="math/tex; mode=display">
-(A + B)' = A' + B'</script><p>这里 $A$ 和 $B$ 可以是任何式子。</p>
-<hr>
-<script type="math/tex; mode=display">
-(k A)' = k (A)'</script><p>这里 $A$ 是任何式子，$k$ 为常数。</p>
-<hr>
-<script type="math/tex; mode=display">
-(a x ^ k)' = k a x ^ {k - 1}</script><hr>
-<script type="math/tex; mode=display">
-\int a x ^ k = \dfrac {1} {k + 1} a ^ {k + 1} + C</script><p>其中 $C$ 表示 $a x ^ k$ 在求导前的（被丢失的）常数项。</p>
-<hr>
-<script type="math/tex; mode=display">
-(G(F(x)))' = G'(F(x)) F'(x)</script><p>注意 $G’(F(x))$ 和 $(G(F(x)))’$ 的区别。这两者是不同的。前者是函数 $G(x)$ 在 $F(x)$ 点上的导数（$\dfrac {\partial G} {\partial F}$），后者是整条式子在 $x$ 变化时的增减情况（$\dfrac {\partial G(F)} {\partial x}$）。</p>
-<hr>
-<script type="math/tex; mode=display">
+<h1 id="note-2">Note-2</h1>
+<p><strong>求导、求积分</strong></p>
+<p><span class="math display">\[
+(A + B)&#39; = A&#39; + B&#39;
+\]</span></p>
+<p>这里 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 可以是任何式子。</p>
+<hr />
+<p><span class="math display">\[
+(k A)&#39; = k (A)&#39;
+\]</span></p>
+<p>这里 <span class="math inline">\(A\)</span> 是任何式子，<span class="math inline">\(k\)</span> 为常数。</p>
+<hr />
+<p><span class="math display">\[
+(a x ^ k)&#39; = k a x ^ {k - 1}
+\]</span></p>
+<hr />
+<p><span class="math display">\[
+\int a x ^ k = \dfrac {1} {k + 1} a ^ {k + 1} + C
+\]</span></p>
+<p>其中 <span class="math inline">\(C\)</span> 表示 <span class="math inline">\(a x ^ k\)</span> 在求导前的（被丢失的）常数项。</p>
+<hr />
+<p><span class="math display">\[
+(G(F(x)))&#39; = G&#39;(F(x)) F&#39;(x)
+\]</span></p>
+<p>注意 <span class="math inline">\(G&#39;(F(x))\)</span> 和 <span class="math inline">\((G(F(x)))&#39;\)</span> 的区别。这两者是不同的。前者是函数 <span class="math inline">\(G(x)\)</span> 在 <span class="math inline">\(F(x)\)</span> 点上的导数（<span class="math inline">\(\dfrac {\partial G} {\partial F}\)</span>），后者是整条式子在 <span class="math inline">\(x\)</span> 变化时的增减情况（<span class="math inline">\(\dfrac {\partial G(F)} {\partial x}\)</span>）。</p>
+<hr />
+<p><span class="math display">\[
 \begin {split}
-     G(F(x)) & = \ln F(x) + A(x) \\
-    G'(F(x)) & = \dfrac {1} {F(x)}
-\end {split}</script><p>同上。$\ln$ 的求导法则 <a href="../math-notes/#note-4">[Link↗]</a>。</p>
-<p>这里可以将 $F(x)$ 看成变量（而非函数），将 $A(x)$ 看成常数的原因，正在于 $\dfrac {\partial G} {\partial F}$ 一式上。这条式子表示对 $F$ 进行（偏）微分，也即将 $F$ 当成自变量。</p>
+     G(F(x)) &amp; = \ln F(x) + A(x) \\
+    G&#39;(F(x)) &amp; = \dfrac {1} {F(x)}
+\end {split}
+\]</span></p>
+<p>同上。<span class="math inline">\(\ln\)</span> 的求导法则 <a href="../math-notes/#Note-4">[Link↗]</a>。</p>
+<p>这里可以将 <span class="math inline">\(F(x)\)</span> 看成变量（而非函数），将 <span class="math inline">\(A(x)\)</span> 看成常数的原因，正在于 <span class="math inline">\(\dfrac {\partial G} {\partial F}\)</span> 一式上。这条式子表示对 <span class="math inline">\(F\)</span> 进行（偏）微分，也即将 <span class="math inline">\(F\)</span> 当成自变量。</p>
 <p>（更严谨的解释我无法给出，还是太菜了啊 QAQ）</p>
-<h1 id="Note-3"><a href="#Note-3" class="headerlink" title="Note-3"></a>Note-3</h1><p>当 $|x| &lt; 1$ 时</p>
-<script type="math/tex; mode=display">
-\displaystyle \sum _ {i = 0} ^ {\infty} x ^ i = \dfrac {1} {1 - x}</script><p><strong>证明：</strong></p>
-<p>对于 $\displaystyle \sum _ {i = 0} ^ {n - 1} x ^ i = 1 + x + x ^ 2 + x ^ 3 + \cdots + x ^ {n - 1}$，在两边同时乘以 $(1 - x)$，就会有：</p>
-<script type="math/tex; mode=display">
+<h1 id="note-3">Note-3</h1>
+<p>当 <span class="math inline">\(|x| &lt; 1\)</span> 时</p>
+<p><span class="math display">\[
+\displaystyle \sum _ {i = 0} ^ {\infty} x ^ i = \dfrac {1} {1 - x}
+\]</span></p>
+<p><strong>证明：</strong></p>
+<p>对于 <span class="math inline">\(\displaystyle \sum _ {i = 0} ^ {n - 1} x ^ i = 1 + x + x ^ 2 + x ^ 3 + \cdots + x ^ {n - 1}\)</span>，在两边同时乘以 <span class="math inline">\((1 - x)\)</span>，就会有：</p>
+<p><span class="math display">\[
 \begin {split}
-      & (1 - x) (1 + x + x ^ 2 + x ^ 3 + \cdots + x ^ {n - 1}) \\
-    = & 1 + x + x ^ 2 + x ^ 3 + \cdots + x ^ {n - 1} \\
-      & - x - x ^ 2 - x ^ 3 - \cdots - x ^ {n - 1} - x ^ n \\
-    = & 1 - x ^ n
-\end {split}</script><p>由于 $1 - x \not = 0$，所以</p>
-<script type="math/tex; mode=display">
-1 + x + x ^ 2 + x ^ 3 + \cdots + x ^ {n - 1} = \dfrac {1 - x ^ n} {1 - x}</script><p>由 $|x| &lt; 1$ 知：当 $n$ 趋近于 $\infty$ 时，$x ^ n$ 趋近于 $0$，$1 - x ^ n$ 趋近于 $1$，即 $\displaystyle \sum _ {i = 0} ^ {\infty} x ^ i = \dfrac {1} {1 - x}$。</p>
+      &amp; (1 - x) (1 + x + x ^ 2 + x ^ 3 + \cdots + x ^ {n - 1}) \\
+    = &amp; 1 + x + x ^ 2 + x ^ 3 + \cdots + x ^ {n - 1} \\
+      &amp; - x - x ^ 2 - x ^ 3 - \cdots - x ^ {n - 1} - x ^ n \\
+    = &amp; 1 - x ^ n
+\end {split}
+\]</span></p>
+<p>由于 <span class="math inline">\(1 - x \not = 0\)</span>，所以</p>
+<p><span class="math display">\[
+1 + x + x ^ 2 + x ^ 3 + \cdots + x ^ {n - 1} = \dfrac {1 - x ^ n} {1 - x}
+\]</span></p>
+<p>由 <span class="math inline">\(|x| &lt; 1\)</span> 知：当 <span class="math inline">\(n\)</span> 趋近于 <span class="math inline">\(\infty\)</span> 时，<span class="math inline">\(x ^ n\)</span> 趋近于 <span class="math inline">\(0\)</span>，<span class="math inline">\(1 - x ^ n\)</span> 趋近于 <span class="math inline">\(1\)</span>，即 <span class="math inline">\(\displaystyle \sum _ {i = 0} ^ {\infty} x ^ i = \dfrac {1} {1 - x}\)</span>。</p>
 <p><em>2020-03-29</em></p>
-<h1 id="Note-4"><a href="#Note-4" class="headerlink" title="Note-4"></a>Note-4</h1><p><strong>Exp 和 Ln 相关</strong></p>
-<script type="math/tex; mode=display">
-(\e ^ x)' = \e ^ x</script><p>常数 $\e$ 的定义（之一）</p>
-<hr>
-<script type="math/tex; mode=display">
-\e ^ x \cdot \e ^ y = \e ^ {x + y}</script><hr>
-<script type="math/tex; mode=display">
-\ln \e ^ x = x</script><hr>
-<script type="math/tex; mode=display">
-\ln (xy) = \ln x + \ln y，同理 \ln \dfrac {x} {y} = \ln x - \ln y</script><p><strong>证明</strong>：$\ln (xy) = \ln (\e ^ {\ln x} \cdot \e ^ {\ln y}) = \ln \e ^ {\ln x + \ln y} = \ln x + \ln y$</p>
-<hr>
-<script type="math/tex; mode=display">
-(\ln x)' = \dfrac {1} {x}</script><p><strong>证明</strong>：设 $F(x) = \e ^ x$，则 $F’(x) = \e ^ x$。设 $G(x) = \ln x$。</p>
-<p>则 $x = e ^ {\ln x} = F(G(x))$。</p>
-<p>则 $1 = (x)’ = (e ^ {\ln x})’ = (F(G(x)))’ = F’(G(x)) G’(x) = e ^ {G(x)} G’(x) = e ^ {\ln x} (\ln x)’ = x (\ln x)’$</p>
-<p>即 $1 = x (\ln x)’$，故 $(\ln x)’ = \dfrac {1} {x}$。</p>
-<hr>
-<script type="math/tex; mode=display">
-(\ln F(x))' = \dfrac {F'(x)} {F(x)}</script><p><strong>证明</strong>：由复合函数求导 <a href="../math-notes/#note-2">[Link↗]</a> 及上面 $(\ln x)’ = \dfrac {1} {x}$ 得出。</p>
-<hr>
-<script type="math/tex; mode=display">
-k \ln x = \ln x ^ k</script><p><strong>证明</strong>：$\ln x ^ k = \ln (\e ^ {\ln x}) ^ k = \ln e ^ {k \ln x} = k \ln x$</p>
+<h1 id="note-4">Note-4</h1>
+<p><strong>Exp 和 Ln 相关</strong></p>
+<p><span class="math display">\[
+(\e ^ x)&#39; = \e ^ x
+\]</span></p>
+<p>常数 <span class="math inline">\(\e\)</span> 的定义（之一）</p>
+<hr />
+<p><span class="math display">\[
+\e ^ x \cdot \e ^ y = \e ^ {x + y}
+\]</span></p>
+<hr />
+<p><span class="math display">\[
+\ln \e ^ x = x
+\]</span></p>
+<hr />
+<p><span class="math display">\[
+\ln (xy) = \ln x + \ln y，同理 \ln \dfrac {x} {y} = \ln x - \ln y
+\]</span></p>
+<p><strong>证明</strong>：<span class="math inline">\(\ln (xy) = \ln (\e ^ {\ln x} \cdot \e ^ {\ln y}) = \ln \e ^ {\ln x + \ln y} = \ln x + \ln y\)</span></p>
+<hr />
+<p><span class="math display">\[
+(\ln x)&#39; = \dfrac {1} {x}
+\]</span></p>
+<p><strong>证明</strong>：设 <span class="math inline">\(F(x) = \e ^ x\)</span>，则 <span class="math inline">\(F&#39;(x) = \e ^ x\)</span>。设 <span class="math inline">\(G(x) = \ln x\)</span>。</p>
+<p>则 <span class="math inline">\(x = e ^ {\ln x} = F(G(x))\)</span>。</p>
+<p>则 <span class="math inline">\(1 = (x)&#39; = (e ^ {\ln x})&#39; = (F(G(x)))&#39; = F&#39;(G(x)) G&#39;(x) = e ^ {G(x)} G&#39;(x) = e ^ {\ln x} (\ln x)&#39; = x (\ln x)&#39;\)</span></p>
+<p>即 <span class="math inline">\(1 = x (\ln x)&#39;\)</span>，故 <span class="math inline">\((\ln x)&#39; = \dfrac {1} {x}\)</span>。</p>
+<hr />
+<p><span class="math display">\[
+(\ln F(x))&#39; = \dfrac {F&#39;(x)} {F(x)}
+\]</span></p>
+<p><strong>证明</strong>：由复合函数求导 <a href="../math-notes/#Note-2">[Link↗]</a> 及上面 <span class="math inline">\((\ln x)&#39; = \dfrac {1} {x}\)</span> 得出。</p>
+<hr />
+<p><span class="math display">\[
+k \ln x = \ln x ^ k
+\]</span></p>
+<p><strong>证明</strong>：<span class="math inline">\(\ln x ^ k = \ln (\e ^ {\ln x}) ^ k = \ln e ^ {k \ln x} = k \ln x\)</span></p>
 
     </div>
 
@@ -348,7 +384,7 @@ k \ln x = \ln x ^ k</script><p><strong>证明</strong>：$\ln x ^ k = \ln (\e ^ 
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Note-1"><span class="nav-number">1.</span> <span class="nav-text">Note-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Note-2"><span class="nav-number">2.</span> <span class="nav-text">Note-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Note-3"><span class="nav-number">3.</span> <span class="nav-text">Note-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Note-4"><span class="nav-number">4.</span> <span class="nav-text">Note-4</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#note-1"><span class="nav-number">1.</span> <span class="nav-text">Note-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#note-2"><span class="nav-number">2.</span> <span class="nav-text">Note-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#note-3"><span class="nav-number">3.</span> <span class="nav-text">Note-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#note-4"><span class="nav-number">4.</span> <span class="nav-text">Note-4</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -362,7 +398,7 @@ k \ln x = \ln x ^ k</script><p><strong>证明</strong>：$\ln x ^ k = \ln (\e ^ 
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
