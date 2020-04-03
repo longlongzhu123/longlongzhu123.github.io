@@ -117,16 +117,6 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
@@ -310,6 +300,7 @@ F(x) &amp; \equiv F _ 0 (x) - \dfrac {G(F _ 0(x))} {G&#39;(F _ 0(x))} \pmod {x ^
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -368,9 +359,8 @@ F(x) &amp; \equiv F _ 0 (x) - \dfrac {G(F _ 0(x))} {G&#39;(F _ 0(x))} \pmod {x ^
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">10</span>
+          <a href="/archives">
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -521,6 +511,26 @@ F(x) &amp; \equiv F _ 0 (x) - \dfrac {G(F _ 0(x))} {G&#39;(F _ 0(x))} \pmod {x ^
     
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '',
+      clientSecret: '',
+      repo        : '',
+      owner       : '',
+      admin       : [''],
+      id          : '6b98c7656bec3090c2629c2d85905268',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>

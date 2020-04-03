@@ -118,16 +118,6 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
@@ -321,7 +311,10 @@ A(x) &amp;= \sum _ {i = 0} ^ {n - 1} \frac {1} {1 - a _ i x} \\
     <a href="/sol-luogu-P3175/" rel="prev" title="题解 luogu P3175 [HAOI2015]按位或">
       <i class="fa fa-chevron-left"></i> 题解 luogu P3175 [HAOI2015]按位或
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/poly-sqrt-brief/" rel="next" title="多项式开根（简要笔记）">
+      多项式开根（简要笔记） <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -335,6 +328,7 @@ A(x) &amp;= \sum _ {i = 0} ^ {n - 1} \frac {1} {1 - a _ i x} \\
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -393,9 +387,8 @@ A(x) &amp;= \sum _ {i = 0} ^ {n - 1} \frac {1} {1 - a _ i x} \\
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">10</span>
+          <a href="/archives">
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -546,6 +539,26 @@ A(x) &amp;= \sum _ {i = 0} ^ {n - 1} \frac {1} {1 - a _ i x} \\
     
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '',
+      clientSecret: '',
+      repo        : '',
+      owner       : '',
+      admin       : [''],
+      id          : 'b1cf4d324e16e3f51c2c0773d2714524',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
