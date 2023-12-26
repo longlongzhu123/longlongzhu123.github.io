@@ -27,6 +27,8 @@
 <meta property="og:site_name" content="longlongzhu123&#39;s blog">
 <meta property="og:description" content="生成函数经典入门题！ 阅读这篇文章你需要：  完成多项式 Ln、Exp 模板 最基础的生成函数知识  题面见链接 [Link↗]">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://longlongzhu123.github.io/sol-luogu-P4389/%E6%89%B9%E6%B3%A8%202020-03-31%20172925.png">
+<meta property="og:image" content="https://longlongzhu123.github.io/sol-luogu-P4389/%E6%89%B9%E6%B3%A8%202020-03-31%20173109.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/5swyjbhGAlBeEZJ.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/4WarUEQVKjsz98Y.png">
 <meta property="article:published_time" content="2020-03-29T09:18:16.000Z">
@@ -36,7 +38,7 @@
 <meta property="article:tag" content="数学::多项式">
 <meta property="article:tag" content="数学::多项式::生成函数">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/03/30/5swyjbhGAlBeEZJ.png">
+<meta name="twitter:image" content="https://longlongzhu123.github.io/sol-luogu-P4389/%E6%89%B9%E6%B3%A8%202020-03-31%20172925.png">
 
 <link rel="canonical" href="https://longlongzhu123.github.io/sol-luogu-P4389/">
 
@@ -286,8 +288,10 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  cin &gt;&gt; n &gt;&gt; v;</span><br><span class="line">  a[<span class="number">0</span>] = <span class="number">1</span>; a[v] = <span class="number">-1</span>; <span class="comment">// 表示函数：F(x) = 1 - x ^ v</span></span><br><span class="line">  lim = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (lim &lt; n) lim &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">Log</span>(a, lim);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; ++i)</span><br><span class="line">    cout &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">  cout &lt;&lt; endl;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>试试运行结果？</p>
-<p>![](sol-luogu-P4389&#x2F;批注 2020-03-31 172925.png)</p>
-<p>![](sol-luogu-P4389&#x2F;批注 2020-03-31 173109.png)</p>
+<img src="/sol-luogu-P4389/%E6%89%B9%E6%B3%A8%202020-03-31%20172925.png" class="">
+
+<img src="/sol-luogu-P4389/%E6%89%B9%E6%B3%A8%202020-03-31%20173109.png" class="">
+
 <p>首先找到一个规律：数字只在 $v, 2v, 3v, \cdots$ 这些位置出现。</p>
 <p>对数字敏感点吧。很明显，第 $v$ 位上的数字 $998244352 \equiv -1 \pmod {998244353}$。</p>
 <p>那第 $2v$ 位上的 $499122176$ 是什么呢？注意到这个数字差不多是 $998244353$ 的一半。</p>
