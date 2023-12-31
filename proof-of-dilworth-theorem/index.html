@@ -20,15 +20,23 @@
     var CONFIG = {"hostname":"longlongzhu123.github.io","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="longlongzhu123&#39;s blog">
-<meta property="og:url" content="https://longlongzhu123.github.io/archives/index.html">
+  <meta name="description" content="在序理论和组合数学中，Dilworth 定理指出在有限偏序集上以偏序关系构成的链是如何覆盖整个偏序集的，进而导出后续的一些图论相关定理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dilworth 定理的证明">
+<meta property="og:url" content="https://longlongzhu123.github.io/proof-of-dilworth-theorem/index.html">
 <meta property="og:site_name" content="longlongzhu123&#39;s blog">
+<meta property="og:description" content="在序理论和组合数学中，Dilworth 定理指出在有限偏序集上以偏序关系构成的链是如何覆盖整个偏序集的，进而导出后续的一些图论相关定理。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://longlongzhu123.github.io/proof-of-dilworth-theorem/LowestCommonAncestor.png">
+<meta property="article:published_time" content="2023-12-31T07:55:19.000Z">
+<meta property="article:modified_time" content="2023-12-31T07:55:19.964Z">
 <meta property="article:author" content="longlongzhu123">
+<meta property="article:tag" content="序理论">
+<meta property="article:tag" content="组合数学">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://longlongzhu123.github.io/proof-of-dilworth-theorem/LowestCommonAncestor.png">
 
-<link rel="canonical" href="https://longlongzhu123.github.io/archives/">
+<link rel="canonical" href="https://longlongzhu123.github.io/proof-of-dilworth-theorem/">
 
 
 <script id="page-configurations">
@@ -36,11 +44,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>归档 | longlongzhu123's blog</title>
+  <title>Dilworth 定理的证明 | longlongzhu123's blog</title>
   
 
 
@@ -177,312 +185,108 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 14 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://longlongzhu123.github.io/proof-of-dilworth-theorem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="longlongzhu123">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="longlongzhu123's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Dilworth 定理的证明
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-12-31 15:55:19" itemprop="dateCreated datePublished" datetime="2023-12-31T15:55:19+08:00">2023-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2023</h1>
-    </div>
+        <p>在序理论和组合数学中，Dilworth 定理指出在有限偏序集上以偏序关系构成的链是如何覆盖整个偏序集的，进而导出后续的一些图论相关定理。</p>
+<span id="more"></span>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-12-31T15:55:19+08:00"
-              content="2023-12-31">
-          12-31
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/proof-of-dilworth-theorem/" itemprop="url">
-            <span itemprop="name">Dilworth 定理的证明</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-07T08:35:43+08:00"
-              content="2020-04-07">
-          04-07
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/sol-luogu-CF662C-brief/" itemprop="url">
-            <span itemprop="name">题解 luogu CF662C Binary Table（简要笔记）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-03T17:07:40+08:00"
-              content="2020-04-03">
-          04-03
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/poly-about-some-details-in-coding/" itemprop="url">
-            <span itemprop="name">多项式的一些实现细节</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-03T08:55:55+08:00"
-              content="2020-04-03">
-          04-03
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/poly-sqrt-brief/" itemprop="url">
-            <span itemprop="name">多项式开根（简要笔记）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-01T16:51:54+08:00"
-              content="2020-04-01">
-          04-01
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/sol-luogu-P4705-brief/" itemprop="url">
-            <span itemprop="name">题解 P4705 玩游戏（简要笔记）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-31T23:08:29+08:00"
-              content="2020-03-31">
-          03-31
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/sol-luogu-P3175/" itemprop="url">
-            <span itemprop="name">题解 luogu P3175 [HAOI2015]按位或</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-31T15:25:36+08:00"
-              content="2020-03-31">
-          03-31
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/poly-exp-brief/" itemprop="url">
-            <span itemprop="name">多项式 Exp（简要笔记）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-31T15:13:41+08:00"
-              content="2020-03-31">
-          03-31
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/poly-log-brief/" itemprop="url">
-            <span itemprop="name">多项式 Ln 函数（简要笔记）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-29T17:18:16+08:00"
-              content="2020-03-29">
-          03-29
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/sol-luogu-P4389/" itemprop="url">
-            <span itemprop="name">题解 luogu P4389 付公主的背包</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-26T11:10:54+08:00"
-              content="2020-03-26">
-          03-26
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/poly-inv-brief/" itemprop="url">
-            <span itemprop="name">多项式求逆（简要笔记）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-25T10:50:11+08:00"
-              content="2020-03-25">
-          03-25
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/taylor-series-newton-iter-brief/" itemprop="url">
-            <span itemprop="name">泰勒级数、牛顿迭代（简要笔记）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-19T15:11:10+08:00"
-              content="2020-03-19">
-          03-19
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/latex-notes/" itemprop="url">
-            <span itemprop="name">一些 LaTex 的小记</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-16T14:36:43+08:00"
-              content="2020-03-16">
-          03-16
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/fwt-notes-detailed/" itemprop="url">
-            <span itemprop="name">FWT - 快速沃尔什变换（详解）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-16T14:26:49+08:00"
-              content="2020-03-16">
-          03-16
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/math-notes/" itemprop="url">
-            <span itemprop="name">数学杂项</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+<h1 id="概念和定义"><a href="#概念和定义" class="headerlink" title="概念和定义"></a>概念和定义</h1><p>为了描述什么是偏序集，我们先给出<strong>偏序</strong>的概念。</p>
+<p><strong>定义 1（二元关系）</strong> 设 $A$ 是一个集合，$W$ 是 $A \times A$ 的一个子集，称为 $A$ 上的一个二元关系。对于任意的 $x, y \in A$，如果 $(x, y) \in W$，则称元素 $x$ 和 $y$ 有关系 $W$，记作 $x W y$。否则，若 $(x, y) \not \in W$，则称 $x$ 和 $y$ 没有关系 $W$。</p>
+<p><strong>定义 2（偏序关系）</strong> 设 $\le$ 是 $A$ 上的一个二元关系，若 $\le$ 满足：</p>
+<ul>
+<li>（自反性）$\forall x \in A,$ 有 $x \le x$；</li>
+<li>（反对称性）如果 $x \le y$ 且 $y \le x$，那么 $x &#x3D; y$；</li>
+<li>（传递性）如果 $x \le y$ 且 $y \le z$，那么 $x \le z$；</li>
+</ul>
+<p>则称 $\le$ 是 $A$ 上的一个偏序关系，$(A, \le)$ 称为一个偏序集。如果 $x, y \in A$ 满足 $x \le y$ 或 $y \le x$，那么称 $x$ 和 $y$ 是可比较的。如果 $\forall x, y \in A$，都有 $x \le y$ 或 $y \le x$，则称 $\le$ 是 $A$ 上的一个全序关系，$(A, \le)$ 称为一个全序集。</p>
+<p>注意 $\le$ 不一定是普通意义下的“小于等于”关系，下面我们给出一些例子。</p>
+<p><strong>例 1（大小比较关系）</strong> 设 $A &#x3D; \mathbb {R}$，那么普通意义下的小于等于关系 $\le$ 是 $A$ 上的一个偏序关系，此时 $(A, \le)$ 是一个偏序集，而且是一个全序集。严格小于关系 $&lt;$ 不是 $A$ 上的一个偏序关系，因为自反性 $x &lt; x$ 对于 $A$ 中的任何元素都不满足。另外，大于等于关系 $\ge$ 也是 $A$ 上的一个偏序关系。</p>
+<p><strong>例 2（集合的包含关系）</strong> 设 $A &#x3D; \mathcal{P}(\mathbb{Z})$，即 $A$ 是由所有可能的整数集构成的集合（$\mathbb{Z}$ 的幂集），那么 $\sub$ 是 $A$ 上的一个偏序关系，这里 $X \sub Y$ 当且仅当 $X$ 是 $Y$ 的子集。此时 $(A, \sub)$ 是一个偏序集，但不是一个全序集，因为存在不可比较的两个集合，任一方都不是对方的子集。</p>
+<p><strong>例 3（树的祖先关系）</strong> 在图论中，设 $T$ 是树，对于 $T$ 上的任意两个节点 $x, y$，若 $x \larr y$ 表示 $y$ 是 $x$ 的祖先，那么 $\larr$ 是树 $T$ 上的一个偏序关系，但不是全序关系。</p>
+<img src="/proof-of-dilworth-theorem/LowestCommonAncestor.png" class="" title="Wikipedia">
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%BA%8F%E7%90%86%E8%AE%BA/" rel="tag"># 序理论</a>
+              <a href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" rel="tag"># 组合数学</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/sol-luogu-CF662C-brief/" rel="prev" title="题解 luogu CF662C Binary Table（简要笔记）">
+      <i class="fa fa-chevron-left"></i> 题解 luogu CF662C Binary Table（简要笔记）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -533,6 +337,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E5%92%8C%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">概念和定义</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
