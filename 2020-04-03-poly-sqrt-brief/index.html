@@ -259,7 +259,7 @@
 <h1 id="第一种方法：牛顿迭代"><a href="#第一种方法：牛顿迭代" class="headerlink" title="第一种方法：牛顿迭代"></a>第一种方法：牛顿迭代</h1><p>$$<br>\begin {split}<br>B(x) ^ 2 &amp;\equiv A(x) \pmod {x ^ n} \<br>B(x) ^ 2 - A(x) &amp;\equiv 0 \pmod {x ^ n}<br>\end {split}<br>$$</p>
 <p>令 $F(B(x)) &#x3D; B(x) ^ 2 - A(x)$。</p>
 <p>设 $F(B_0(x)) \equiv 0 \pmod {x ^ \frac {n} {2}}$，则：</p>
-<p>$$<br>\begin {split}<br>B(x) &amp;\equiv B_0(x) - \frac {F(B_0(x))} {F’(B_0(x))} \<br>&amp;\equiv B_0(x) - \frac {B_0(x) ^ 2 - A(x)} {2B_0(x)} \<br>&amp;\equiv \frac {2B_0(x) ^ 2 - B_0(x) ^ 2 + A(x)} {2B_0(x)} \<br>&amp;\equiv \frac {B_0(x) ^ 2 + A(x)} {2B_0(x)} \<br>&amp;\equiv \frac {1} {2} \left ( B_0(x) + \frac {A(x)} {B_0(x)} \right ) \pmod {x ^ n} \<br>\end {split}<br>$$</p>
+<p>$$<br>\begin {split}<br>B(x) &amp;\equiv B_0(x) - \frac {F(B_0(x))} {F&#39;(B_0(x))} \<br>&amp;\equiv B_0(x) - \frac {B_0(x) ^ 2 - A(x)} {2B_0(x)} \<br>&amp;\equiv \frac {2B_0(x) ^ 2 - B_0(x) ^ 2 + A(x)} {2B_0(x)} \<br>&amp;\equiv \frac {B_0(x) ^ 2 + A(x)} {2B_0(x)} \<br>&amp;\equiv \frac {1} {2} \left ( B_0(x) + \frac {A(x)} {B_0(x)} \right ) \pmod {x ^ n} \<br>\end {split}<br>$$</p>
 <p>代码参见 <code>GetSqrt</code> 函数。</p>
 <h1 id="第二种方法：Ln-Exp"><a href="#第二种方法：Ln-Exp" class="headerlink" title="第二种方法：Ln + Exp"></a>第二种方法：Ln + Exp</h1><p>$$<br>\begin {split}<br>B(x) ^ 2 &amp;\equiv A(x) \pmod {x ^ n} \<br>2 \ln B(x) &amp;\equiv \ln A(x) \pmod {x ^ n} \<br>\ln B(x) &amp;\equiv \frac {\ln A(x)} {2} \pmod {x ^ n} \<br>B(x) &amp;\equiv \exp \left ( \frac {\ln A(x)} {2} \right ) \pmod {x ^ n}<br>\end {split}<br>$$</p>
 <p>代码参见 <code>Sqrt</code> 函数。</p>
