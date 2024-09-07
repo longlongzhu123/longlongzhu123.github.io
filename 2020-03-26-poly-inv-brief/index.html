@@ -248,34 +248,13 @@
 <li>多项式乘法</li>
 </ol>
 <span id="more"></span>
-<h1><span id="多项式求逆">多项式求逆</span></h1>
-<p>对于 $A(x) B(x) \equiv 1 \pmod {x ^ n}$，已知 $A(x)$，求 $B(x)$。两者的次数都应该是 $n$。</p>
-<h1><span id="倍增">倍增</span></h1>
-<p>假设 $A(x) B _ 0 (x) \equiv 1 \pmod {x ^ \frac n 2}$，已经求出 $B _ 0 (x)$。</p>
+
+<h1><span id="多项式求逆">多项式求逆</span></h1><p>对于 $A(x) B(x) \equiv 1 \pmod {x ^ n}$，已知 $A(x)$，求 $B(x)$。两者的次数都应该是 $n$。</p>
+<h1><span id="倍增">倍增</span></h1><p>假设 $A(x) B _ 0 (x) \equiv 1 \pmod {x ^ \frac n 2}$，已经求出 $B _ 0 (x)$。</p>
 <p>由于 $A(x) B(x) \equiv 1 \pmod {x ^ n}$，显然将 $\bmod {x ^ n}$ 改成 $\bmod {x ^ \frac n 2}$ 也是可以的。</p>
-<p>$$<br>
-\begin {gather}<br>
-\left {<br>
-\begin {split}<br>
-A(x) B(x) &amp; \equiv 1 \pmod {x ^ \frac n 2} \<br>
-A(x) B _ 0(x) &amp; \equiv 1 \pmod {x ^ \frac n 2}<br>
-\end {split}<br>
-\right . \nonumber \<br>
-\begin {split}<br>
-A(x) (B(x) - B _ 0 (x)) &amp; \equiv 0 \pmod {x ^ \frac n 2} \<br>
-B(x) - B _ 0 (x) &amp; \equiv 0 \pmod {x ^ \frac n 2} \<br>
-(B(x) - B _ 0 (x)) ^ 2 &amp; \equiv 0 \pmod {x ^ n} \<br>
-B(x) ^ 2 + B _ 0 (x) ^ 2 - 2 B(x) B _ 0 (x) &amp; \equiv 0 \pmod {x ^ n} \<br>
-A(x) (B(x) ^ 2 + B _ 0 (x) ^ 2 - 2 B(x) B _ 0 (x)) &amp; \equiv 0 \pmod {x ^ n} \<br>
-B(x) + A(x) B _ 0 (x) ^ 2 - 2 B _ 0 (x) &amp; \equiv 0 \pmod {x ^ n} \<br>
-B(x) &amp; \equiv 2 B _ 0 (x) - A(x) B _ 0 (x) ^ 2 \pmod {x ^ n} \<br>
-B(x) &amp; \equiv B _ 0 (x) (2 - A(x) B _ 0 (x)) \pmod {x ^ n}<br>
-\end {split} \nonumber<br>
-\end {gather}<br>
-$$</p>
+<p>$$<br>\begin {gather}<br>    \left {<br>        \begin {split}<br>                A(x) B(x) &amp; \equiv 1 \pmod {x ^ \frac n 2} \<br>            A(x) B _ 0(x) &amp; \equiv 1 \pmod {x ^ \frac n 2}<br>        \end {split}<br>    \right . \nonumber \<br>    \begin {split}<br>                           A(x) (B(x) - B _ 0 (x)) &amp; \equiv 0 \pmod {x ^ \frac n 2} \<br>                                  B(x) - B _ 0 (x) &amp; \equiv 0 \pmod {x ^ \frac n 2} \<br>                            (B(x) - B _ 0 (x)) ^ 2 &amp; \equiv 0 \pmod {x ^ n} \<br>       B(x) ^ 2 + B _ 0 (x) ^ 2 - 2 B(x) B _ 0 (x) &amp; \equiv 0 \pmod {x ^ n} \<br>A(x) (B(x) ^ 2 + B _ 0 (x) ^ 2 - 2 B(x) B _ 0 (x)) &amp; \equiv 0 \pmod {x ^ n} \<br>           B(x) + A(x) B _ 0 (x) ^ 2 - 2 B _ 0 (x) &amp; \equiv 0 \pmod {x ^ n} \<br>                                              B(x) &amp; \equiv 2 B _ 0 (x) - A(x) B _ 0 (x) ^ 2 \pmod {x ^ n} \<br>                                              B(x) &amp; \equiv B _ 0 (x) (2 - A(x) B _ 0 (x)) \pmod {x ^ n}<br>    \end {split} \nonumber<br>\end {gather}<br>$$</p>
 <p>故得到递推公式：$B(x) \equiv B _ 0 (x) (2 - B _ 0 (x)) \pmod {x ^ n}$。</p>
-<h1><span id="翻倍">翻倍</span></h1>
-<p>“二元函数”</p>
+<h1><span id="翻倍">翻倍</span></h1><p>“二元函数”</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">LL <span class="type">inv_t</span>[kMaxN];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">InvIter</span><span class="params">(LL* a, LL* b, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> lim = (n &lt;&lt; <span class="number">1</span>); <span class="comment">// 乘法：保留空间 (1)</span></span><br><span class="line">  <span class="built_in">fill</span>(<span class="type">inv_t</span>, <span class="type">inv_t</span> + lim, <span class="number">0</span>); <span class="comment">// 不建议删去</span></span><br><span class="line">  <span class="built_in">copy</span>(a, a + n, <span class="type">inv_t</span>); <span class="comment">// 乘法：保留空间 (2)</span></span><br><span class="line">  <span class="built_in">Ntt</span>(<span class="type">inv_t</span>, lim, <span class="literal">true</span>);</span><br><span class="line">  <span class="built_in">Ntt</span>(b, lim, <span class="literal">true</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; ++i)</span><br><span class="line">    b[i] = <span class="built_in">Fdec</span>(<span class="number">2</span>, <span class="type">inv_t</span>[i] * b[i] % kMod) * b[i] % kMod;</span><br><span class="line">  <span class="built_in">Ntt</span>(b, lim, <span class="literal">false</span>);</span><br><span class="line">  <span class="built_in">fill</span>(b + n, b + lim, <span class="number">0</span>); <span class="comment">// 记得清零！</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">Inv</span><span class="params">(LL* a, LL* b, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">fill</span>(b, b + n, <span class="number">0</span>);</span><br><span class="line">  b[<span class="number">0</span>] = <span class="built_in">Fpow</span>(a[<span class="number">0</span>], kMod - <span class="number">2</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> len = <span class="number">2</span>; len &lt;= n; len &lt;&lt;= <span class="number">1</span>)</span><br><span class="line">    <span class="built_in">InvIter</span>(a, b, len);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 

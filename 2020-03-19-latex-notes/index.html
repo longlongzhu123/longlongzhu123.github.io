@@ -244,8 +244,8 @@
       
         <p>记录一些 $\rm \LaTeX$ 的使用笔记。</p>
 <span id="more"></span>
-<h1><span id="1">1</span></h1>
-<p><code>\DeclareMathOperator</code></p>
+
+<h1><span id="1">1</span></h1><p><code>\DeclareMathOperator</code></p>
 <p>用 <code>\DeclareMathOperator &#123;符号表达方式&#125; &#123;显示内容&#125;</code> 来自定义一个自己的 LaTeX 命令。</p>
 <p>众所周知异或运算符 <code>\xor</code> 在 LaTeX 里面是没法渲染的。</p>
 <p>可以通过 <code>\DeclareMathOperator &#123;\xor&#125; &#123;\oplus&#125;</code> 来定义 <code>\xor</code>——对 LaTeX 说：“这个符号表示公式 <code>&#123;\oplus&#125;</code>！”。</p>
@@ -253,8 +253,8 @@
 <p>注意在这个例子中，显示内容默认是正体（<code>\rm</code>）的，而且两边总各有一个空格。而普通的 <code>\rm</code>（或 <code>\mathrm</code>）没有。</p>
 <p>可以在 <code>\DeclareMathOperator</code> 后面加上一个星号，下面是效果对比：</p>
 <ol>
-<li>$\DeclareMathOperator   {\MySum} {\mathrm {Plus}} \displaystyle \MySum _ {i = 0} ^ {n - 1}$（没星号）</li>
-<li>$\DeclareMathOperator * {\MySum} {\mathrm {Plus}} \displaystyle \MySum _ {i = 0} ^ {n - 1}$（有星号）</li>
+<li>$\DeclareMathOperator   {\MySum} {\mathrm {Plus}} \displaystyle \MySum _ {i &#x3D; 0} ^ {n - 1}$（没星号）</li>
+<li>$\DeclareMathOperator * {\MySum} {\mathrm {Plus}} \displaystyle \MySum _ {i &#x3D; 0} ^ {n - 1}$（有星号）</li>
 </ol>
 <p>同样右键查看命令。</p>
 

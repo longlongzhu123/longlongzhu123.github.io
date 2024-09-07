@@ -248,56 +248,39 @@
 </ol>
 <p>题面见链接 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3175">[Link↗]</a></p>
 <span id="more"></span>
-<h1><span id="前置知识">前置知识</span></h1>
-<ol>
-<li>
-<p>min-max 容斥定理：$\max (S) = \displaystyle \sum _ {T \subseteq S} (-1) ^ {|T| - 1} \min (T)$</p>
+
+<h1><span id="前置知识">前置知识</span></h1><ol>
+<li><p>min-max 容斥定理：$\max (S) &#x3D; \displaystyle \sum _ {T \subseteq S} (-1) ^ {|T| - 1} \min (T)$</p>
 <p>该定理在期望意义下同样成立：</p>
-<p>$E(\max (S)) = \displaystyle \sum _ {T \subseteq S} (-1) ^ {|T| - 1} E(\min (T))$</p>
+<p>$E(\max (S)) &#x3D; \displaystyle \sum _ {T \subseteq S} (-1) ^ {|T| - 1} E(\min (T))$</p>
 </li>
-<li>
-<p>离散随机变量的几何分布</p>
-<p>其实就是一个很简单的结论：若对于随机变量 $X$ 满足 $P(X = k) = (1 - p) ^ {k - 1} p$，则 $E(X) = \dfrac {1} {p}$</p>
+<li><p>离散随机变量的几何分布</p>
+<p>其实就是一个很简单的结论：若对于随机变量 $X$ 满足 $P(X &#x3D; k) &#x3D; (1 - p) ^ {k - 1} p$，则 $E(X) &#x3D; \dfrac {1} {p}$</p>
 <p>感性理解：你要去膜拜 <strong>yyc</strong>，每次膜拜有 $\dfrac {1} {100}$ 的概率能够被 yyc 不屑看上一眼（从而得到 yyc 神犇光环庇佑），则第 $k$ 次膜拜才第一次被 yyc 看上一眼的概率是：</p>
-<p>$$<br>
-(1 - \dfrac {1} {100}) ^ {k - 1} \dfrac {1} {100}<br>
-$$</p>
+<p>$$<br>(1 - \dfrac {1} {100}) ^ {k - 1} \dfrac {1} {100}<br>$$</p>
 <p>而期望 $100$ 次才第一次被 yyc 看上一眼。同样地，假如概率是 $\dfrac {1} {1000}$，则期望次数是 $1000$ 次；假如概率是 $\dfrac {a} {b}$，则期望次数是 $\dfrac {b} {a}$ 次……依此类推。</p>
 </li>
 </ol>
-<h1><span id="分析">分析</span></h1>
-<p>下文 $n$ 表示二进制串的长度，$U$ 表示全集。</p>
+<h1><span id="分析">分析</span></h1><p>下文 $n$ 表示二进制串的长度，$U$ 表示全集。</p>
 <p>假设<strong>某次所有操作结束</strong>，你手上的数字变成 $2 ^ n - 1$ 之后，我们统计操作过程时发现第 $i$ 位在第 $k _ i$ 次操作的时候，刚好第一次变成 $1$（“被覆盖”）。</p>
 <p>若 $S$ 表示一些二进制位的集合。记 $\max (S)$ 表示 $\max ({ k _ i | i \in S })$，即 $S$ 中最后一个被覆盖的位在这次操作中喜提 $0$ 转 $1$。显然 $\max (S)$ 就是 $S$ 被最终整个覆盖的时间。同理定义 $\min(S)$，则 $\min(S)$ 表示 $S$ 第一次被覆盖某个位的时间。</p>
 <p>好好理解 $\min(S)$ 和 $\max(S)$ 的含义。根据 min-max 容斥定理，就可以得到</p>
-<p>$$<br>
-\max(S) = \displaystyle \sum _ {T \subseteq S} (-1) ^ {|T| - 1} \min(T)<br>
-$$</p>
+<p>$$<br>\max(S) &#x3D; \displaystyle \sum _ {T \subseteq S} (-1) ^ {|T| - 1} \min(T)<br>$$</p>
 <p>放到期望意义下，“某次所有操作结束”变成“总的来说……平均起来”</p>
-<p>$$<br>
-E(\max(S)) = \displaystyle \sum _ {T \subseteq S} (-1) ^ {|T| - 1} E(\min(T))<br>
-$$</p>
+<p>$$<br>E(\max(S)) &#x3D; \displaystyle \sum _ {T \subseteq S} (-1) ^ {|T| - 1} E(\min(T))<br>$$</p>
 <p>请看这条式子的左边：$E(\max(S))$ 正是将 $S$ 整个覆盖的期望秒数。</p>
-<p>那么答案就是 $E(\max(U))$。既然 $E(\max(S))$ 不好求（不然也不会出题让我们做 = =），我们就想办法求出 $E(\min(T))$。</p>
-<h1><span id="求-emint">求 E(min(T))</span></h1>
-<p>记 $p(S)$ 表示选择 $S$ 的概率，即题目输入。</p>
+<p>那么答案就是 $E(\max(U))$。既然 $E(\max(S))$ 不好求（不然也不会出题让我们做 &#x3D; &#x3D;），我们就想办法求出 $E(\min(T))$。</p>
+<h1><span id="求-emint">求 E(min(T))</span></h1><p>记 $p(S)$ 表示选择 $S$ 的概率，即题目输入。</p>
 <p>$E(\min(T))$ 表示第一次覆盖 $T$ 中任一元素的期望操作次数。</p>
 <p>设 $P(T)$ 表示一次操作能覆盖 $T$ 中任一元素的概率。</p>
 <p>则</p>
-<p>$$<br>
-E(\min(T)) = \dfrac {1} {P(T)}<br>
-$$</p>
+<p>$$<br>E(\min(T)) &#x3D; \dfrac {1} {P(T)}<br>$$</p>
 <p>加法原理</p>
-<p>$$<br>
-P(T) = \displaystyle \sum _ {S \cap T \not = \varnothing} p(S)<br>
-= 1 - \displaystyle \sum _ {S \cap T = \varnothing} p(S)<br>
-= 1 - \displaystyle \sum _ {S \subseteq (U - T)} p(S)<br>
-$$</p>
-<p>记 $P’(T) = \displaystyle \sum _ {S \subseteq T} p(S)$，则 $P(T) = 1 - P’(U - T)$。</p>
-<p>用<strong>高维前缀和</strong> <a href="../math-notes/#note-1">[Link↗]</a> 求 $P’(T)$。它是 $p(S)$ 的高维前缀和。</p>
-<p>求出 $P’(T)$ 后求 $P(T)$，求 $\min(T)$，最后得到 $\max(S)$。输出 $\max(U)$。</p>
-<h1><span id="代码">代码</span></h1>
-<p>特判 $\min(\varnothing)$，令其等于 $0$ 以不干扰计算（不然会算出 $\inf$）</p>
+<p>$$<br>P(T) &#x3D; \displaystyle \sum _ {S \cap T \not &#x3D; \varnothing} p(S)<br>     &#x3D; 1 - \displaystyle \sum _ {S \cap T &#x3D; \varnothing} p(S)<br>     &#x3D; 1 - \displaystyle \sum _ {S \subseteq (U - T)} p(S)<br>$$</p>
+<p>记 $P&#39;(T) &#x3D; \displaystyle \sum _ {S \subseteq T} p(S)$，则 $P(T) &#x3D; 1 - P&#39;(U - T)$。</p>
+<p>用<strong>高维前缀和</strong> <a href="../math-notes/#note-1">[Link↗]</a> 求 $P&#39;(T)$。它是 $p(S)$ 的高维前缀和。</p>
+<p>求出 $P&#39;(T)$ 后求 $P(T)$，求 $\min(T)$，最后得到 $\max(S)$。输出 $\max(U)$。</p>
+<h1><span id="代码">代码</span></h1><p>特判 $\min(\varnothing)$，令其等于 $0$ 以不干扰计算（不然会算出 $\inf$）</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> kLen = <span class="number">20</span> + <span class="number">1</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> kMaxN = (<span class="number">1</span> &lt;&lt; kLen) + <span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> kEps = <span class="number">1e-9</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">SubSum</span><span class="params">(<span class="type">double</span>* a, <span class="type">int</span> blen)</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> n = (<span class="number">1</span> &lt;&lt; blen);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; blen; ++k)</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">      <span class="keyword">if</span> (i &amp; (<span class="number">1</span> &lt;&lt; k))</span><br><span class="line">        a[i] += a[i ^ (<span class="number">1</span> &lt;&lt; k)];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">SubMul</span><span class="params">(<span class="type">double</span>* a, <span class="type">int</span> blen)</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> n = (<span class="number">1</span> &lt;&lt; blen);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; blen; ++k)</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">      <span class="keyword">if</span> (i &amp; (<span class="number">1</span> &lt;&lt; k))</span><br><span class="line">        a[i] *= a[i ^ (<span class="number">1</span> &lt;&lt; k)];</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> blen, n, U;</span><br><span class="line"><span class="type">double</span> p1[kMaxN], p2[kMaxN];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">PrintBit</span><span class="params">(<span class="type">int</span> S, <span class="type">int</span> blen)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; blen; ++k)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, (S &amp; (<span class="number">1</span> &lt;&lt; k)) ? <span class="string">&#x27;1&#x27;</span> : <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">Print</span><span class="params">(<span class="type">double</span>* a, <span class="type">int</span> blen)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;print:\n&quot;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> S = <span class="number">0</span>; S &lt; (<span class="number">1</span> &lt;&lt; blen); ++S) &#123;</span><br><span class="line">    <span class="built_in">PrintBit</span>(S, blen);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;: %.3lf\n&quot;</span>, a[S]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">Cnt</span><span class="params">(<span class="type">int</span> S)</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (; S; S -= (S &amp; -S)) ++ans;</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;blen);</span><br><span class="line">  n = (<span class="number">1</span> &lt;&lt; blen);</span><br><span class="line">  U = n - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> S = <span class="number">0</span>; S &lt; n; ++S)</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>, &amp;p1[S]);</span><br><span class="line">  <span class="built_in">SubSum</span>(p1, blen);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> S = <span class="number">0</span>; S &lt; n; ++S)</span><br><span class="line">    p2[S] = p1[U - S];</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> S = <span class="number">0</span>; S &lt; n; ++S) &#123;</span><br><span class="line">    <span class="keyword">if</span> (S != <span class="number">0</span> &amp;&amp; <span class="number">1</span> - p2[S] &lt; kEps) &#123;</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">&quot;INF\n&quot;</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    p2[S] = <span class="number">1.0</span> / (<span class="number">1</span> - p2[S]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> S = <span class="number">0</span>; S &lt; n; ++S)</span><br><span class="line">    <span class="keyword">if</span> (!(<span class="built_in">Cnt</span>(S) &amp; <span class="number">1</span>))</span><br><span class="line">      p2[S] = -p2[S];</span><br><span class="line">  p2[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">SubSum</span>(p2, blen);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%.10lf\n&quot;</span>, p2[U]);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 

@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"longlongzhu123.github.io","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideDownIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="大名鼎鼎的泰勒公式： $$ F(x) &#x3D; \displaystyle \sum _ {i &#x3D; 0} ^ {\infty} F ^ {(i)} (x _ 0) \dfrac {(x - x _ 0) ^ i} {i!} $$ 阅读这篇文章你需要：  有一定多项式基础">
+  <meta name="description" content="大名鼎鼎的泰勒公式： $$F(x) &#x3D; \displaystyle \sum _ {i &#x3D; 0} ^ {\infty} F ^ {(i)} (x _ 0) \dfrac {(x - x _ 0) ^ i} {i!}$$ 阅读这篇文章你需要：  有一定多项式基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="泰勒级数、牛顿迭代（简要笔记）">
 <meta property="og:url" content="https://longlongzhu123.github.io/2020-03-25-taylor-series-newton-iter-brief/index.html">
 <meta property="og:site_name" content="longlongzhu123&#39;s blog">
-<meta property="og:description" content="大名鼎鼎的泰勒公式： $$ F(x) &#x3D; \displaystyle \sum _ {i &#x3D; 0} ^ {\infty} F ^ {(i)} (x _ 0) \dfrac {(x - x _ 0) ^ i} {i!} $$ 阅读这篇文章你需要：  有一定多项式基础">
+<meta property="og:description" content="大名鼎鼎的泰勒公式： $$F(x) &#x3D; \displaystyle \sum _ {i &#x3D; 0} ^ {\infty} F ^ {(i)} (x _ 0) \dfrac {(x - x _ 0) ^ i} {i!}$$ 阅读这篇文章你需要：  有一定多项式基础">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-25T02:50:11.000Z">
 <meta property="article:modified_time" content="2024-09-07T08:51:12.666Z">
@@ -243,62 +243,35 @@
 
       
         <p>大名鼎鼎的泰勒公式：</p>
-<p>$$<br>
-F(x) = \displaystyle \sum _ {i = 0} ^ {\infty} F ^ {(i)} (x _ 0) \dfrac {(x - x _ 0) ^ i} {i!}<br>
-$$</p>
+<p>$$<br>F(x) &#x3D; \displaystyle \sum _ {i &#x3D; 0} ^ {\infty} F ^ {(i)} (x _ 0) \dfrac {(x - x _ 0) ^ i} {i!}<br>$$</p>
 <p>阅读这篇文章你需要：</p>
 <ol>
 <li>有一定多项式基础</li>
 </ol>
 <span id="more"></span>
-<h1><span id="前置知识">前置知识</span></h1>
-<ul>
+
+<h1><span id="前置知识">前置知识</span></h1><ul>
 <li>多项式求导、积分 <a href="../math-notes/#note-2">[Link↗]</a></li>
 </ul>
-<h1><span id="麦克劳林级数">麦克劳林级数</span></h1>
-<p>$$<br>
-F(x) = \displaystyle \sum _ {i = 0} ^ {\infty} F ^ {(i)} (0) \dfrac {x ^ i} {i!}<br>
-= F(0) + F’(0) x + F’'(0) \dfrac {x ^ 2} {2!} + \cdots<br>
-$$</p>
-<p>感性理解：对序列 $A$ 的 EGF 求导等价于将 $A$ 前移一位。这里序列 $A$ 是 $(F(0), F’(0), \cdots)$，对其求导仍能满足等式。</p>
+<h1><span id="麦克劳林级数">麦克劳林级数</span></h1><p>$$<br>F(x) &#x3D; \displaystyle \sum _ {i &#x3D; 0} ^ {\infty} F ^ {(i)} (0) \dfrac {x ^ i} {i!}<br>     &#x3D; F(0) + F&#39;(0) x + F&#39;&#39;(0) \dfrac {x ^ 2} {2!} + \cdots<br>$$</p>
+<p>感性理解：对序列 $A$ 的 EGF 求导等价于将 $A$ 前移一位。这里序列 $A$ 是 $(F(0), F&#39;(0), \cdots)$，对其求导仍能满足等式。</p>
 <p>知乎上面的部分回答都不够严谨。具体证明需用积分。</p>
-<h1><span id="泰勒展开">泰勒展开</span></h1>
-<p>泰勒展开是麦克劳林级数的扩展</p>
-<p>$$<br>
-F(x) = \displaystyle \sum _ {i = 0} ^ {\infty} F ^ {(i)} (x _ 0) \dfrac {(x - x _ 0) ^ i} {i!}<br>
-$$</p>
-<h1><span id="牛顿迭代多项式">牛顿迭代（多项式）</span></h1>
-<p>有趣的是，泰勒展开在 $x$ 为多项式的时候也能成立。</p>
-<p>$$<br>
-G(F(x)) = \displaystyle \sum _ {i = 0} ^ {\infty} G ^ {(i)} (F_0(x)) \dfrac {(F(x) - F_0(x)) ^ i} {i!}<br>
-$$</p>
+<h1><span id="泰勒展开">泰勒展开</span></h1><p>泰勒展开是麦克劳林级数的扩展</p>
+<p>$$<br>F(x) &#x3D; \displaystyle \sum _ {i &#x3D; 0} ^ {\infty} F ^ {(i)} (x _ 0) \dfrac {(x - x _ 0) ^ i} {i!}<br>$$</p>
+<h1><span id="牛顿迭代多项式">牛顿迭代（多项式）</span></h1><p>有趣的是，泰勒展开在 $x$ 为多项式的时候也能成立。</p>
+<p>$$<br>G(F(x)) &#x3D; \displaystyle \sum _ {i &#x3D; 0} ^ {\infty} G ^ {(i)} (F_0(x)) \dfrac {(F(x) - F_0(x)) ^ i} {i!}<br>$$</p>
 <p>这里 $F _ 0 (x)$ 可以是一个任意的多项式。</p>
 <p>我们想要找到一个 $F(x)$ 使得对于已知的 $G(x)$，有 $G(F(x)) \equiv 0 \pmod {x ^ n}$。</p>
 <p>假设我们已经知道一个 $F _ 0 (x)$ 使得 $G(F _ 0 (x)) \equiv 0 \pmod {x ^ {\frac {n} {2}}}$。</p>
 <p>考虑在 $\bmod {x ^ n}$ 意义下：</p>
-<p>$$<br>
-\begin {split}<br>
-0 \equiv G(F(x)) &amp;\equiv G(F _ 0 (x)) + G’(F _ 0 (x)) (F(x) - F _ 0(x)) \ &amp; \ \ \ \  + G’'(F _ 0 (x)) \dfrac {(F(x) - F _ 0 (x)) ^ 2} {2!} + \cdots<br>
-\end {split} \pmod {x ^ n}<br>
-$$</p>
+<p>$$<br>\begin {split}<br>0 \equiv G(F(x)) &amp;\equiv G(F _ 0 (x)) + G&#39;(F _ 0 (x)) (F(x) - F _ 0(x)) \ &amp; \ \ \ \  + G&#39;&#39;(F _ 0 (x)) \dfrac {(F(x) - F _ 0 (x)) ^ 2} {2!} + \cdots<br>\end {split} \pmod {x ^ n}<br>$$</p>
 <p>注意由于（很显然地）$F(x)$ 和 $F _ 0 (x)$ 的前 $\frac {n} {2}$ 项是相同的，所以</p>
-<p>$$<br>
-\begin {split}<br>
-F(x) - F _ 0 (x) &amp;\equiv 0 \pmod {x ^ {\frac {n} {2}}} \<br>
-(F(x) - F _ 0 (x)) ^ 2 &amp;\equiv 0 \pmod {x ^ n} \<br>
-\end {split}<br>
-$$</p>
-<p>因此所有 $G’'(F _ 0 (x)) \dfrac {(F(x) - F _ 0 (x)) ^ 2} {2!} + \cdots$ 后面的项在 $\bmod {x ^ n}$ 意义下都是 $0$，可以舍去。</p>
+<p>$$<br>\begin {split}<br>F(x) - F _ 0 (x) &amp;\equiv 0 \pmod {x ^ {\frac {n} {2}}} \<br>(F(x) - F _ 0 (x)) ^ 2 &amp;\equiv 0 \pmod {x ^ n} \<br>\end {split}<br>$$</p>
+<p>因此所有 $G&#39;&#39;(F _ 0 (x)) \dfrac {(F(x) - F _ 0 (x)) ^ 2} {2!} + \cdots$ 后面的项在 $\bmod {x ^ n}$ 意义下都是 $0$，可以舍去。</p>
 <p>故</p>
-<p>$$<br>
-\begin {split}<br>
-0 \equiv G(F(x)) &amp; \equiv G(F _ 0 (x)) + G’(F _ 0 (x)) (F(x) - F _ 0(x)) \pmod {x ^ n} \<br>
-0 &amp; \equiv G(F _ 0 (x)) + G’(F _ 0 (x)) (F(x) - F _ 0(x)) \pmod {x ^ n} \<br>
-F(x) &amp; \equiv F _ 0 (x) - \dfrac {G(F _ 0(x))} {G’(F _ 0(x))} \pmod {x ^ n}<br>
-\end {split}<br>
-$$</p>
+<p>$$<br>\begin {split}<br>0 \equiv G(F(x)) &amp; \equiv G(F _ 0 (x)) + G&#39;(F _ 0 (x)) (F(x) - F _ 0(x)) \pmod {x ^ n} \<br>0 &amp; \equiv G(F _ 0 (x)) + G&#39;(F _ 0 (x)) (F(x) - F _ 0(x)) \pmod {x ^ n} \<br>F(x) &amp; \equiv F _ 0 (x) - \dfrac {G(F _ 0(x))} {G&#39;(F _ 0(x))} \pmod {x ^ n}<br>\end {split}<br>$$</p>
 <p>第三行式子可以由第二行式子移项推出。请读者自己手玩（滑稽）。</p>
-<p><strong>结论</strong> 多项式牛顿迭代的公式：$F(x) \equiv F _ 0 (x) - \dfrac {G(F _ 0(x))} {G’(F _ 0(x))} \pmod {x ^ n}$</p>
+<p><strong>结论</strong> 多项式牛顿迭代的公式：$F(x) \equiv F _ 0 (x) - \dfrac {G(F _ 0(x))} {G&#39;(F _ 0(x))} \pmod {x ^ n}$</p>
 <p>记住它，$F _ 0$ 减去 $G$ 在 $F _ 0$ 上的函数值与导数之比。该公式在多项式运算中经常会用到。</p>
 
     </div>
