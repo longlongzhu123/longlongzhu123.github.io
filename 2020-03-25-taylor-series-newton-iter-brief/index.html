@@ -250,15 +250,15 @@
 </ol>
 <span id="more"></span>
 
-<h1><span id="前置知识">前置知识</span></h1><ul>
+<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><ul>
 <li>多项式求导、积分 <a href="../math-notes/#note-2">[Link↗]</a></li>
 </ul>
-<h1><span id="麦克劳林级数">麦克劳林级数</span></h1><p>$$<br>F(x) &#x3D; \displaystyle \sum _ {i &#x3D; 0} ^ {\infty} F ^ {(i)} (0) \dfrac {x ^ i} {i!}<br>     &#x3D; F(0) + F&#39;(0) x + F&#39;&#39;(0) \dfrac {x ^ 2} {2!} + \cdots<br>$$</p>
+<h1 id="麦克劳林级数"><a href="#麦克劳林级数" class="headerlink" title="麦克劳林级数"></a>麦克劳林级数</h1><p>$$<br>F(x) &#x3D; \displaystyle \sum _ {i &#x3D; 0} ^ {\infty} F ^ {(i)} (0) \dfrac {x ^ i} {i!}<br>     &#x3D; F(0) + F&#39;(0) x + F&#39;&#39;(0) \dfrac {x ^ 2} {2!} + \cdots<br>$$</p>
 <p>感性理解：对序列 $A$ 的 EGF 求导等价于将 $A$ 前移一位。这里序列 $A$ 是 $(F(0), F&#39;(0), \cdots)$，对其求导仍能满足等式。</p>
 <p>知乎上面的部分回答都不够严谨。具体证明需用积分。</p>
-<h1><span id="泰勒展开">泰勒展开</span></h1><p>泰勒展开是麦克劳林级数的扩展</p>
+<h1 id="泰勒展开"><a href="#泰勒展开" class="headerlink" title="泰勒展开"></a>泰勒展开</h1><p>泰勒展开是麦克劳林级数的扩展</p>
 <p>$$<br>F(x) &#x3D; \displaystyle \sum _ {i &#x3D; 0} ^ {\infty} F ^ {(i)} (x _ 0) \dfrac {(x - x _ 0) ^ i} {i!}<br>$$</p>
-<h1><span id="牛顿迭代多项式">牛顿迭代（多项式）</span></h1><p>有趣的是，泰勒展开在 $x$ 为多项式的时候也能成立。</p>
+<h1 id="牛顿迭代（多项式）"><a href="#牛顿迭代（多项式）" class="headerlink" title="牛顿迭代（多项式）"></a>牛顿迭代（多项式）</h1><p>有趣的是，泰勒展开在 $x$ 为多项式的时候也能成立。</p>
 <p>$$<br>G(F(x)) &#x3D; \displaystyle \sum _ {i &#x3D; 0} ^ {\infty} G ^ {(i)} (F_0(x)) \dfrac {(F(x) - F_0(x)) ^ i} {i!}<br>$$</p>
 <p>这里 $F _ 0 (x)$ 可以是一个任意的多项式。</p>
 <p>我们想要找到一个 $F(x)$ 使得对于已知的 $G(x)$，有 $G(F(x)) \equiv 0 \pmod {x ^ n}$。</p>
@@ -357,7 +357,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">前置知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">麦克劳林级数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">泰勒展开</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">牛顿迭代（多项式）</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">前置知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%BA%A6%E5%85%8B%E5%8A%B3%E6%9E%97%E7%BA%A7%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">麦克劳林级数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80"><span class="nav-number">3.</span> <span class="nav-text">泰勒展开</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%EF%BC%88%E5%A4%9A%E9%A1%B9%E5%BC%8F%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">牛顿迭代（多项式）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

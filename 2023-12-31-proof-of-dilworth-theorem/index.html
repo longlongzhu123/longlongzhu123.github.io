@@ -248,7 +248,7 @@
 <p>Dilworth 定理指出，在任意的有限偏序集中，最小链划分的大小等于最大反链的大小。</p>
 <span id="more"></span>
 
-<h1><span id="概念和定义">概念和定义</span></h1><p>为了描述什么是偏序集，我们先给出<strong>偏序</strong>的概念。</p>
+<h1 id="概念和定义"><a href="#概念和定义" class="headerlink" title="概念和定义"></a>概念和定义</h1><p>为了描述什么是偏序集，我们先给出<strong>偏序</strong>的概念。</p>
 <p><strong>定义 1（二元关系）</strong> 设 $S$ 是一个非空集合，$W$ 是 $S \times S$ 的一个子集，称为 $S$ 上的一个二元关系。对于任意的 $x, y \in S$，如果 $(x, y) \in W$，则称元素 $x$ 和 $y$ 有关系 $W$，记作 $x W y$。否则，若 $(x, y) \not \in W$，则称 $x$ 和 $y$ 没有关系 $W$。</p>
 <p><strong>定义 2（偏序关系）</strong> 设 $\le$ 是 $S$ 上的一个二元关系，若 $\le$ 满足：</p>
 <ul>
@@ -272,11 +272,11 @@
 <p>如果 $C$ 是 $S$ 中的链（从而是全序集），那么 $C$ 的极大元是唯一的，称为 $C$ 的最大元。</p>
 <p><strong>定义 4（链和反链）</strong> 设 $(S, \le)$ 是一个偏序集，如果 $C \subset S$ 满足 $C$ 中的任意两个元素都是可比较的，则称 $C$ 是 $S$ 中的链（chain）。如果 $A \subset S$ 满足 $A$ 中的任意两个元素都是不可比较的，则称 $A$ 是 $S$ 中的反链（antichain）。</p>
 <p>规定 $S$ 的子集中，只含一个元素的集合既是链，又是反链。</p>
-<h1><span id="dilworth-定理">Dilworth 定理</span></h1><p>假设偏序集 $S$ 是有限的，那么将 $S$ 中的每个元素自身作为一个集合，这些集合就构成了 $S$ 的一个划分。这些集合也是链，所以这就构成了 $S$ 的一个<strong>链划分</strong>。基于此，我们给出正式的定义。</p>
+<h1 id="Dilworth-定理"><a href="#Dilworth-定理" class="headerlink" title="Dilworth 定理"></a>Dilworth 定理</h1><p>假设偏序集 $S$ 是有限的，那么将 $S$ 中的每个元素自身作为一个集合，这些集合就构成了 $S$ 的一个划分。这些集合也是链，所以这就构成了 $S$ 的一个<strong>链划分</strong>。基于此，我们给出正式的定义。</p>
 <p><strong>定义 3（链划分）</strong> 设 $C_1, \cdots, C_k$ 是偏序集 $S$ 的一个划分，即 $C_i (i &#x3D; 1, \cdots, k)$ 两两不交，且其并集等于 $S$。若 $C_1, \cdots, C_k$ 都是链，则称 $C_1, \cdots, C_k$ 是 $S$ 的一个链划分，$k$ 称为这个链划分的大小。</p>
 <p>Dilworth 定理指出，在任意的有限偏序集中，最小链划分的大小等于最大反链的大小。</p>
 <p><strong>定理（Dilworth）</strong> 设 $S$ 是有限的偏序集，则存在正整数 $k$，使得 $S$ 的所有链划分大小都不小于 $k$，$S$ 的所有反链大小都不大于 $k$，并且分别存在大小恰为 $k$ 的链划分和大小恰为 $k$ 的反链。</p>
-<h1><span id="定理的证明">定理的证明</span></h1><p>首先给出一个引理。</p>
+<h1 id="定理的证明"><a href="#定理的证明" class="headerlink" title="定理的证明"></a>定理的证明</h1><p>首先给出一个引理。</p>
 <p><strong>引理 2</strong> 有限偏序集 $(S, \le)$ 的链划分大小不小于 $S$ 中的反链大小。</p>
 <p><strong>证明</strong> 假设 $A$ 是 $S$ 中的一个反链，$C_1, \cdots, C_k$ 是 $S$ 的一个链划分，且 $A$ 的大小大于 $k$。根据鸽巢原理，存在某个 $C_i$，使得 $C_i$ 中有两个元素 $x, y$ 属于 $A$。那么由于 $x, y \in C_i$，所以 $x$ 和 $y$ 是可比较的。但是 $x, y \in A$，这与反链的定义矛盾。所以 $A$ 的大小不大于 $k$，引理证毕。</p>
 <p>下面证明 Dilworth 定理。</p>
@@ -292,7 +292,7 @@
 <p>将 $K$ 加入到 $P \backslash K$ 的最小链分解中，得到一个大小为 $k$ 的链分解；再将 $a$ 加入到 $A \backslash {x_i}$ 中，得到一个大小为 $k$ 的反链。所以 $P$ 的最小链分解大小等于最大反链大小。</p>
 <p>假设不存在 $i \in {1, 2, \cdots, k}$，使得 $x_i \le a$，那么由于 $a$ 是一个极大元，$a \le x_i$ 也不成立，所以 $A \cup {a}$ 就是 $S$ 的一个大小为 $k + 1$ 的反链。现在 ${a}, C_1, \cdots, C_k$ 就是 $S$ 的一个大小为 $k + 1$ 的链分解，所以最小链分解大小等于最大反链大小。</p>
 <p>根据数学归纳法，定理证毕。</p>
-<h1><span id="参考链接">参考链接</span></h1><ol>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Dilworth%27s_theorem">Dilworth&#39;s theorem - Wikipedia</a></li>
 </ol>
 
@@ -377,7 +377,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">概念和定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Dilworth 定理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">定理的证明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E5%92%8C%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">概念和定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dilworth-%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">Dilworth 定理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E7%90%86%E7%9A%84%E8%AF%81%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">定理的证明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
