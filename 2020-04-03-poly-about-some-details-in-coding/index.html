@@ -245,20 +245,25 @@
         <p>标记一些易错的坑。</p>
 <p>目前最新的模板以<strong>多项式开根</strong> <a href="../poly-sqrt-brief/">[Link↗]</a> 为准。</p>
 <span id="more"></span>
-
-<h1 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h1><h2 id="fill"><a href="#fill" class="headerlink" title="fill"></a>fill</h2><p>用法：<code>fill(begin_, end_, value)</code>。将 <code>[begin_, end_)</code> 中的内容赋值为 <code>value</code>。</p>
-<h2 id="copy"><a href="#copy" class="headerlink" title="copy"></a>copy</h2><p>用法：<code>copy(begin_, end_, target)</code> 将 <code>[begin_, end_)</code> 中的内容复制到 <code>target</code> 中。其中内容以 <code>target</code> 为起点开始排列。</p>
-<h1 id="清空数组"><a href="#清空数组" class="headerlink" title="清空数组"></a>清空数组</h1><p>令 <code>lim = n &lt;&lt; 1</code>。</p>
+<h1><span id="辅助函数">辅助函数</span></h1>
+<h2><span id="fill">fill</span></h2>
+<p>用法：<code>fill(begin_, end_, value)</code>。将 <code>[begin_, end_)</code> 中的内容赋值为 <code>value</code>。</p>
+<h2><span id="copy">copy</span></h2>
+<p>用法：<code>copy(begin_, end_, target)</code> 将 <code>[begin_, end_)</code> 中的内容复制到 <code>target</code> 中。其中内容以 <code>target</code> 为起点开始排列。</p>
+<h1><span id="清空数组">清空数组</span></h1>
+<p>令 <code>lim = n &lt;&lt; 1</code>。</p>
 <ol>
 <li>清空<strong>输入</strong>数组（<code>a</code>）的 <code>[n, lim)</code> 区间</li>
 <li>清空<strong>输出</strong>数组（<code>b</code>）的 <code>[0, lim)</code> 区间</li>
 <li>清空<strong>临时</strong>数组（<code>tmp</code>）的 <code>[0, lim)</code> 区间</li>
 </ol>
-<h1 id="乘法留空间"><a href="#乘法留空间" class="headerlink" title="乘法留空间"></a>乘法留空间</h1><ol>
-<li>若两个 $n$ 次多项式相乘，需要按照 $lim &#x3D; 2n$ 进行 FFT。</li>
+<h1><span id="乘法留空间">乘法留空间</span></h1>
+<ol>
+<li>若两个 $n$ 次多项式相乘，需要按照 $lim = 2n$ 进行 FFT。</li>
 <li>若需要用到输入的 <code>a</code> 做乘法，仅将需要的前 $n$ 位复制到临时数组 <code>tmp</code> 中，其余 <code>[n, lim)</code> 区间的系数丢掉。</li>
 </ol>
-<h1 id="总空间"><a href="#总空间" class="headerlink" title="总空间"></a>总空间</h1><p>目前已知：最少为 4 倍（补成 $2^k$ 两倍，乘法两倍）</p>
+<h1><span id="总空间">总空间</span></h1>
+<p>目前已知：最少为 4 倍（补成 $2^k$ 两倍，乘法两倍）</p>
 <p>稳妥的办法是开成 8 倍乃至 16 倍。在空间允许的范围内当然越稳越好。<strong>注意真正参与计算的多项式位数</strong>。有的题目可能要求构造一些多项式进行运算，这时多项式的位数不一定是 $n$ 位！</p>
 
     </div>
@@ -344,7 +349,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">辅助函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fill"><span class="nav-number">1.1.</span> <span class="nav-text">fill</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#copy"><span class="nav-number">1.2.</span> <span class="nav-text">copy</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%85%E7%A9%BA%E6%95%B0%E7%BB%84"><span class="nav-number">2.</span> <span class="nav-text">清空数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%98%E6%B3%95%E7%95%99%E7%A9%BA%E9%97%B4"><span class="nav-number">3.</span> <span class="nav-text">乘法留空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%A9%BA%E9%97%B4"><span class="nav-number">4.</span> <span class="nav-text">总空间</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">辅助函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text">fill</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text">copy</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">清空数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">乘法留空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">总空间</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
