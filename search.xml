@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>2024-12-03-how-to-make-a-opengl-program-in-vscode</title>
+      <link href="/2024-12-03-how-to-make-a-opengl-program-in-vscode/"/>
+      <url>/2024-12-03-how-to-make-a-opengl-program-in-vscode/</url>
+      
+        <content type="html"><![CDATA[<p>这篇文章介绍如何在 VS Code 上配置 OpenGL 环境，并运行第一个图形窗口。并且记录一些容易踩的坑。</p><span id="more"></span><p>你好</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机图形学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OpenGL </tag>
+            
+            <tag> 图形编程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Dilworth 定理的证明</title>
       <link href="/2023-12-31-proof-of-dilworth-theorem/"/>
       <url>/2023-12-31-proof-of-dilworth-theorem/</url>
