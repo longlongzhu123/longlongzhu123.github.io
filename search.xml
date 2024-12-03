@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>2024-12-03-how-to-make-a-opengl-program-in-vscode</title>
+      <title>如何在 VS Code 上创建自己的第一个 OpenGL 窗口</title>
       <link href="/2024-12-03-how-to-make-a-opengl-program-in-vscode/"/>
       <url>/2024-12-03-how-to-make-a-opengl-program-in-vscode/</url>
       
-        <content type="html"><![CDATA[<p>这篇文章介绍如何在 VS Code 上配置 OpenGL 环境，并运行第一个图形窗口。并且记录一些容易踩的坑。</p><span id="more"></span><p>你好</p>]]></content>
+        <content type="html"><![CDATA[<p>这篇文章介绍如何在 VS Code 上配置 OpenGL 环境，并运行自己的第一个图形窗口。并且记录一些容易踩的坑。</p><span id="more"></span><p>你好</p>]]></content>
       
       
       <categories>
