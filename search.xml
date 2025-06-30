@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>2025-06-30-functoriality-between-vectors-and-covectors</title>
+      <link href="/2025-06-30-functoriality-between-vectors-and-covectors/"/>
+      <url>/2025-06-30-functoriality-between-vectors-and-covectors/</url>
+      
+        <content type="html"><![CDATA[<p>流形 $M$ 上的点和 $M$ 上的向量很像，流形 $M$ 上的函数和 $M$ 上的余向量很像。</p><span id="more"></span><p>（未完待续）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 微分几何 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 微分几何 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>如何在 VS Code 上创建自己的第一个 OpenGL 窗口</title>
       <link href="/2024-12-03-how-to-make-a-opengl-program-in-vscode/"/>
       <url>/2024-12-03-how-to-make-a-opengl-program-in-vscode/</url>
