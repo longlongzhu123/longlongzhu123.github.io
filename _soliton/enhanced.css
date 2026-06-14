@@ -1,0 +1,1245 @@
+/* ==========================================================================
+   enhanced.css — Academic Lecture Notes Enhanced Stylesheet
+   Overrides htlatex/TeX4ht auto-generated styles (main.css) for a refined,
+   readable, modern scientific document view.
+
+   Document: Electromagnetic Solitons — From Linear Waves to Ball Lightning
+   Generated from LaTeX via TeX4ht. Override-only; does not touch HTML.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. DESIGN SYSTEM: CSS Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  /* --- Color Palette --- */
+  --clr-bg:                #fefefe;
+  --clr-bg-warm:           #fcfaf7;
+  --clr-text:              #2c3e50;
+  --clr-text-light:        #5a6c7d;
+  --clr-text-muted:        #8e9eab;
+
+  --clr-accent:            #1a5276;
+  --clr-accent-light:      #2980b9;
+
+  --clr-part:              #8b0028;
+  --clr-chapter:           #1a3a5c;
+  --clr-section:           #2c3e50;
+
+  /* tcolorbox colours (as requested) */
+  --clr-derivation-bg:     #FFF8E1;
+  --clr-derivation-border: #FFC107;
+  --clr-derivation-title:  #8d6f00;
+
+  --clr-keyresult-bg:      #E3F2FD;
+  --clr-keyresult-border:  #2196F3;
+  --clr-keyresult-title:   #0d47a1;
+
+  --clr-insight-bg:        #E8F5E9;
+  --clr-insight-border:    #4CAF50;
+  --clr-insight-title:     #1b5e20;
+
+  --clr-note-bg:           #FFF3E0;
+  --clr-note-border:       #FF9800;
+  --clr-note-title:        #e65100;
+
+  --clr-table-stripe:      #f4f6f8;
+  --clr-table-border:      #dde1e5;
+  --clr-table-header-bg:   #eef1f4;
+
+  --clr-bib-bg:            #fafafa;
+  --clr-bib-border:        #e0e0e0;
+
+  --clr-link:              #1a649f;
+  --clr-link-hover:        #0d3b66;
+
+  /* --- Typography --- */
+  --font-body:             Georgia, "Times New Roman", serif;
+  --font-heading:          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:             "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", Menlo, Courier, monospace;
+
+  --fs-base:               17px;
+  --lh-body:               1.70;
+  --lh-heading:            1.25;
+
+  /* --- Spacing Scale (8px base) --- */
+  --space-xs:              4px;
+  --space-sm:              8px;
+  --space-md:              16px;
+  --space-lg:              24px;
+  --space-xl:              32px;
+  --space-2xl:             48px;
+  --space-3xl:             64px;
+
+  /* --- Borders & Shadows --- */
+  --radius-sm:             4px;
+  --radius-md:             6px;
+  --radius-lg:             10px;
+  --shadow-sm:             0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:             0 2px 8px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-lg:             0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+
+  /* --- Layout --- */
+  --content-max-width:     900px;
+  --content-padding:       var(--space-lg);
+}
+
+/* --------------------------------------------------------------------------
+   1. BASE & RESET OVERRIDES
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  font-size: var(--fs-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: var(--lh-body);
+  color: var(--clr-text);
+  background-color: var(--clr-bg);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--content-padding) var(--space-3xl);
+}
+
+/* Links */
+a {
+  color: var(--clr-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+a:hover,
+a:focus {
+  color: var(--clr-link-hover);
+  text-decoration: underline;
+}
+
+/* Selection */
+::selection {
+  background: #c5d9ed;
+  color: var(--clr-text);
+}
+
+/* Paragraphs */
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+p + p {
+  margin-top: 1em;
+}
+p.indent {
+  text-indent: 0;
+}
+p.noindent {
+  text-indent: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. TYPOGRAPHY — HEADING HIERARCHY
+   -------------------------------------------------------------------------- */
+
+/* ---- Part Head (h1) — dramatic, centered, crimson ---- */
+h1.partHead {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--clr-part);
+  text-align: center;
+  margin: var(--space-3xl) 0 var(--space-2xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 2px solid var(--clr-part);
+  letter-spacing: 0.02em;
+  line-height: var(--lh-heading);
+}
+
+/* ---- Like-Part Head (h2 variant, rarely used but defined) ---- */
+h2.likepartHead {
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--clr-part);
+  text-align: center;
+  margin: var(--space-2xl) 0 var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--clr-part);
+}
+
+/* ---- Chapter Head (h2) — large, navy, with bottom rule ---- */
+h2.chapterHead,
+h2.likechapterHead {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--clr-chapter);
+  margin: var(--space-3xl) 0 var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 3px solid var(--clr-chapter);
+  line-height: var(--lh-heading);
+}
+h2.chapterHead .titlemark,
+h2.likechapterHead .titlemark {
+  font-size: 0.85em;
+  font-weight: 400;
+  color: var(--clr-text-light);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+/* ---- Section Head (h3) — medium-large, with left accent line ---- */
+h3.sectionHead,
+h3.likesectionHead {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--clr-section);
+  margin: var(--space-2xl) 0 var(--space-md);
+  padding-left: var(--space-md);
+  border-left: 4px solid var(--clr-accent);
+  line-height: var(--lh-heading);
+}
+
+/* ---- Subsection Head (h4) — medium, distinct ---- */
+h4.subsectionHead,
+h4.likesubsectionHead {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--clr-text);
+  margin: var(--space-xl) 0 var(--space-md);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--clr-table-border);
+  line-height: var(--lh-heading);
+}
+
+/* ---- Subsubsection Head (h4 variant) — same level as subsection but lighter ---- */
+h4.likesubsubsectionHead {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--clr-text-light);
+  margin: var(--space-lg) 0 var(--space-sm);
+  font-style: italic;
+  line-height: var(--lh-heading);
+}
+
+/* ---- Titlemark spans inside headings ---- */
+.titlemark {
+  font-weight: 400;
+  color: var(--clr-text-muted);
+  font-size: 0.85em;
+}
+
+/* ---- Captions ---- */
+div.caption {
+  text-indent: -2em;
+  margin-left: 3em;
+  margin-right: 1em;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--clr-text-light);
+  font-style: italic;
+}
+div.caption span.id {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ---- Paragraph-level heads ---- */
+.paragraphHead,
+.likeparagraphHead {
+  font-family: var(--font-heading);
+  margin-top: 2em;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+/* --------------------------------------------------------------------------
+   3. COVER PAGE — maketitle
+   -------------------------------------------------------------------------- */
+div.maketitle {
+  text-align: center;
+  margin: var(--space-3xl) 0 var(--space-3xl);
+  padding: var(--space-3xl) var(--space-lg);
+  background: linear-gradient(180deg,
+    rgba(26,58,92,0.03) 0%,
+    rgba(26,58,92,0.01) 50%,
+    transparent 100%);
+  border-bottom: 1px solid var(--clr-table-border);
+}
+
+h2.titleHead {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--clr-chapter);
+  text-align: center;
+  line-height: 1.4;
+  margin: 0 0 var(--space-lg) 0;
+}
+
+div.maketitle .author {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--clr-text-light);
+  text-align: center;
+  margin-bottom: var(--space-md);
+  white-space: nowrap;
+}
+
+div.maketitle .date {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--clr-text-muted);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* --------------------------------------------------------------------------
+   4. TABLE OF CONTENTS
+   -------------------------------------------------------------------------- */
+div.tableofcontents {
+  margin: var(--space-lg) 0 var(--space-2xl);
+  padding: var(--space-lg);
+  background: var(--clr-bg-warm);
+  border: 1px solid var(--clr-table-border);
+  border-radius: var(--radius-md);
+}
+
+div.tableofcontents a {
+  color: var(--clr-text);
+  text-decoration: none;
+}
+div.tableofcontents a:hover {
+  color: var(--clr-accent);
+  text-decoration: underline;
+}
+
+/* TOC indent levels (override main.css) */
+.chapterToc,
+.likechapterToc {
+  margin-left: 0;
+  line-height: 200%;
+  font-weight: 700;
+}
+.sectionToc,
+.likesectionToc {
+  margin-left: 1em;
+  line-height: 190%;
+}
+.subsectionToc,
+.likesubsectionToc {
+  margin-left: 2em;
+  line-height: 180%;
+  font-size: 0.95em;
+}
+.subsubsectionToc,
+.likesubsubsectionToc {
+  margin-left: 3em;
+  line-height: 170%;
+  font-size: 0.9em;
+  color: var(--clr-text-light);
+}
+.partToc a,
+.partToc,
+.likepartToc a,
+.likepartToc {
+  line-height: 220%;
+  font-weight: 700;
+  font-size: 110%;
+  color: var(--clr-part);
+}
+
+/* --------------------------------------------------------------------------
+   5. TCOLORBOX ENVIRONMENTS
+   Coloured callout boxes: derivation, keyresult, physicalinsight, notebox
+   -------------------------------------------------------------------------- */
+
+/* ----- Reset auto-generated per-ID tcolorbox styles from main.css ----- */
+[id^="tcolobox"] .tcolorbox-title,
+[id^="tcolobox"] .tcolorbox-content {
+  color: inherit !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* ----- Base tcolorbox container ----- */
+div.tcolorbox {
+  margin: var(--space-lg) 0;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+/* ----- Base title bar ----- */
+.tcolorbox .tcolorbox-title {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  margin: 0;
+  line-height: 1.3;
+}
+.tcolorbox .tcolorbox-title p {
+  margin: 0;
+  padding: 0;
+}
+
+/* ----- Base content area ----- */
+.tcolorbox .tcolorbox-content {
+  padding: 15px;
+  font-size: 0.98rem;
+  line-height: var(--lh-body);
+}
+.tcolorbox .tcolorbox-content p {
+  margin-bottom: 0.6em;
+}
+.tcolorbox .tcolorbox-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ----- Derivation (Amber / Yellow) ----- */
+div.tcolorbox.derivation {
+  border: 1px solid var(--clr-derivation-border);
+  border-left: 5px solid var(--clr-derivation-border);
+  background: var(--clr-derivation-bg);
+}
+div.tcolorbox.derivation .tcolorbox-title {
+  color: var(--clr-derivation-title) !important;
+  background-color: #fff3cd !important;
+  border-bottom: 1px solid var(--clr-derivation-border);
+}
+div.tcolorbox.derivation .tcolorbox-content {
+  color: var(--clr-text) !important;
+  background-color: var(--clr-derivation-bg) !important;
+}
+
+/* ----- Key Result (Blue) ----- */
+div.tcolorbox.keyresult {
+  border: 1px solid var(--clr-keyresult-border);
+  border-left: 5px solid var(--clr-keyresult-border);
+  background: var(--clr-keyresult-bg);
+}
+div.tcolorbox.keyresult .tcolorbox-title {
+  color: var(--clr-keyresult-title) !important;
+  background-color: #bbdefb !important;
+  border-bottom: 1px solid var(--clr-keyresult-border);
+}
+div.tcolorbox.keyresult .tcolorbox-content {
+  color: var(--clr-text) !important;
+  background-color: var(--clr-keyresult-bg) !important;
+}
+
+/* ----- Physical Insight (Green) ----- */
+div.tcolorbox.physicalinsight {
+  border: 1px solid var(--clr-insight-border);
+  border-left: 5px solid var(--clr-insight-border);
+  background: var(--clr-insight-bg);
+}
+div.tcolorbox.physicalinsight .tcolorbox-title {
+  color: var(--clr-insight-title) !important;
+  background-color: #c8e6c9 !important;
+  border-bottom: 1px solid var(--clr-insight-border);
+}
+div.tcolorbox.physicalinsight .tcolorbox-content {
+  color: var(--clr-text) !important;
+  background-color: var(--clr-insight-bg) !important;
+}
+
+/* ----- Note Box (Orange) ----- */
+div.tcolorbox.notebox {
+  border: 1px solid var(--clr-note-border);
+  border-left: 5px solid var(--clr-note-border);
+  background: var(--clr-note-bg);
+}
+div.tcolorbox.notebox .tcolorbox-title {
+  color: var(--clr-note-title) !important;
+  background-color: #ffe0b2 !important;
+  border-bottom: 1px solid var(--clr-note-border);
+}
+div.tcolorbox.notebox .tcolorbox-content {
+  color: var(--clr-text) !important;
+  background-color: var(--clr-note-bg) !important;
+}
+
+/* ----- Fallback: plain tcolorbox (no type class) — subtle gray ----- */
+div.tcolorbox:not(.derivation):not(.keyresult):not(.physicalinsight):not(.notebox) {
+  border: 1px solid var(--clr-table-border);
+  border-left: 5px solid var(--clr-text-muted);
+  background: #fafafa;
+  box-shadow: var(--shadow-sm);
+}
+div.tcolorbox:not(.derivation):not(.keyresult):not(.physicalinsight):not(.notebox) .tcolorbox-title {
+  color: var(--clr-text) !important;
+  background-color: #eeeeee !important;
+  border-bottom: 1px solid var(--clr-table-border);
+}
+div.tcolorbox:not(.derivation):not(.keyresult):not(.physicalinsight):not(.notebox) .tcolorbox-content {
+  color: var(--clr-text) !important;
+  background-color: #fafafa !important;
+}
+
+/* --------------------------------------------------------------------------
+   Override the per-id "div" padding rules from main.css (very specific selectors)
+   that add ugly computed padding to every tcolorbox child div.
+   -------------------------------------------------------------------------- */
+[id^="tcolobox"] div.tcolorbox-title,
+[id^="tcolobox"] div.tcolorbox-content {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. MATH ENVIRONMENTS
+   -------------------------------------------------------------------------- */
+
+/* Displayed equations */
+div.math-display,
+div.par-math-display,
+div.mathjax-env.mathjax-equation,
+div.mathjax-env.mathjax-align {
+  text-align: center;
+  margin: var(--space-lg) 0;
+  padding: var(--space-md);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Inline math */ 
+span.mathjax-inline {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+}
+
+/* Make MathJax display equations look crisp */
+mjx-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+/* Equation tables from htlatex */
+table.equation,
+table.equation-star,
+table.eqnarray,
+table.eqnarray-star {
+  width: 100%;
+  margin: var(--space-md) 0;
+}
+td.equation {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/* --------------------------------------------------------------------------
+   7. SVG FIGURES & IMAGES
+   -------------------------------------------------------------------------- */
+
+/* SVG figures — responsive, centered */
+img[src^="main"][src$=".svg"],
+img[src*="x.svg"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: var(--space-xl) auto;
+  padding: var(--space-sm);
+  background: #fff;
+  border: 1px solid var(--clr-table-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Generic images in figures */
+div.figure img,
+div.float img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: var(--space-md) auto;
+}
+
+div.float,
+div.figure {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+/* Inline math images */
+img.math {
+  vertical-align: middle;
+}
+
+/* Ensure images have no borders from main.css */
+a img {
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. TABLES
+   -------------------------------------------------------------------------- */
+
+table.tabular {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: var(--space-lg) auto;
+  font-size: 0.92rem;
+  width: auto;
+  max-width: 100%;
+  box-shadow: var(--shadow-sm);
+}
+
+table.tabular td,
+table.tabular th {
+  padding: 8px 14px;
+  border: 1px solid var(--clr-table-border);
+  vertical-align: top;
+  text-align: left;
+}
+
+/* Alternating row colors */
+table.tabular tr:nth-child(even) td {
+  background-color: var(--clr-table-stripe);
+}
+
+/* Header-like top rows */
+table.tabular tr:first-child td,
+table.tabular tr:first-child th {
+  background-color: var(--clr-table-header-bg);
+  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  color: var(--clr-chapter);
+  border-bottom: 2px solid var(--clr-accent);
+}
+
+/* Rule borders from htlatex */
+table[rules] {
+  border-left: solid var(--clr-table-border) 0.4pt;
+  border-right: solid var(--clr-table-border) 0.4pt;
+}
+
+.hline {
+  border-top: 1px solid var(--clr-table-border);
+}
+
+.hline hr,
+.cline hr {
+  border: none;
+  border-top: 1px solid var(--clr-table-border);
+  height: 0;
+  margin: 0;
+}
+
+/* Tabular wrappers */
+div.tabular,
+div.center div.tabular {
+  text-align: center;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  overflow-x: auto;
+}
+
+/* --------------------------------------------------------------------------
+   9. THEOREM-LIKE ENVIRONMENTS (newtheorem)
+   -------------------------------------------------------------------------- */
+div.newtheorem {
+  margin: var(--space-lg) 0;
+  padding: var(--space-md) var(--space-md) var(--space-md) var(--space-lg);
+  border-left: 4px solid var(--clr-accent);
+  background: linear-gradient(90deg,
+    rgba(26,82,118,0.03) 0%,
+    rgba(26,82,118,0.01) 50%,
+    transparent 100%);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+div.newtheorem .head {
+  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--clr-accent);
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+/* --------------------------------------------------------------------------
+   10. EXERCISE ENVIRONMENTS
+   -------------------------------------------------------------------------- */
+div.exercise {
+  margin: var(--space-lg) 0;
+  padding: var(--space-md) var(--space-lg);
+  background: #fdf6f0;
+  border: 1px solid #e8c59e;
+  border-left: 4px solid #d4a056;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+div.exercise::before {
+  content: "✎  Exercise";
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #a4743c;
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px dotted #e0c8a8;
+}
+
+/* --------------------------------------------------------------------------
+   11. BIBLIOGRAPHY
+   -------------------------------------------------------------------------- */
+div.thebibliography {
+  margin: var(--space-xl) 0;
+  padding: var(--space-lg);
+  background: var(--clr-bib-bg);
+  border: 1px solid var(--clr-bib-border);
+  border-radius: var(--radius-md);
+}
+
+p.bibitem {
+  text-indent: -2em;
+  margin-left: 2em;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  padding: var(--space-xs) 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  border-bottom: 1px dotted var(--clr-bib-border);
+}
+p.bibitem:last-child {
+  border-bottom: none;
+}
+
+p.bibitem-p {
+  text-indent: 0;
+  margin-left: 2em;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  font-size: 0.92rem;
+}
+
+span.biblabel {
+  font-weight: 700;
+  color: var(--clr-accent);
+  margin-right: var(--space-xs);
+}
+
+/* --------------------------------------------------------------------------
+   12. LISTS (enumerate, itemize)
+   -------------------------------------------------------------------------- */
+
+/* Enumerate grid layout from htlatex */
+dl.enumerate-enumitem {
+  display: grid;
+  grid-template-columns: 3ch 1fr;
+  align-items: baseline;
+  row-gap: 1ch;
+  margin: var(--space-md) 0;
+  padding-left: var(--space-lg);
+}
+
+/* Standard enumerate lists */
+.enumerate1 { list-style-type: decimal; }
+.enumerate2 { list-style-type: lower-alpha; }
+.enumerate3 { list-style-type: lower-roman; }
+.enumerate4 { list-style-type: upper-alpha; }
+
+ul.itemize1,
+ol.enumerate1 {
+  padding-left: 2em;
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+ul.itemize1 li,
+ol.enumerate1 li {
+  margin-bottom: var(--space-xs);
+  line-height: var(--lh-body);
+}
+
+li p.indent { text-indent: 0; }
+li p:first-child { margin-top: 0; margin-bottom: 0; }
+li p:last-child,
+li div:last-child { margin-bottom: 0.5em; }
+li p ~ ul:last-child,
+li p ~ ol:last-child { margin-bottom: 0.5em; }
+
+/* --------------------------------------------------------------------------
+   13. MATHEMATICAL ANNOTATIONS (cancel, overline, underline)
+   -------------------------------------------------------------------------- */
+.cancel {
+  background: linear-gradient(to left top,
+    transparent 47.75%,
+    currentColor 49.5%,
+    currentColor 50.5%,
+    transparent 52.25%);
+}
+.bcancel {
+  background: linear-gradient(to bottom left,
+    transparent 47.75%,
+    currentColor 49.5%,
+    currentColor 50.5%,
+    transparent 52.25%);
+}
+.xcancel {
+  background:
+    linear-gradient(to bottom left,
+      transparent 47.75%,
+      currentColor 49.5%,
+      currentColor 50.5%,
+      transparent 52.25%),
+    linear-gradient(to left top,
+      transparent 47.75%,
+      currentColor 49.5%,
+      currentColor 50.5%,
+      transparent 52.25%);
+}
+
+.overline {
+  text-decoration: overline;
+}
+.overline img {
+  border-top: 1px solid black;
+}
+
+.underline {
+  text-decoration: underline;
+}
+.underline img {
+  border-bottom: 1px solid black;
+  margin-bottom: 1pt;
+}
+
+/* --------------------------------------------------------------------------
+   14. VERBATIM / CODE
+   -------------------------------------------------------------------------- */
+pre.verbatim,
+div.verbatiminput {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  text-align: left;
+  clear: both;
+  background: #f7f8fa;
+  padding: var(--space-md);
+  border: 1px solid var(--clr-table-border);
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+code.verb {
+  font-family: var(--font-mono);
+}
+
+/* --------------------------------------------------------------------------
+   15. FLUSHED / CENTERED / MISC TEXT ALIGNMENT
+   -------------------------------------------------------------------------- */
+div.center {
+  text-align: center;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+div.center div { text-align: left; }
+
+div.flushright {
+  text-align: right;
+}
+div.flushright div { text-align: left; }
+
+div.flushleft {
+  text-align: left;
+}
+
+.centerline { text-align: center; }
+.rightline { text-align: right; }
+
+/* Frame boxes from htlatex */
+.fbox {
+  padding-left: 3pt;
+  padding-right: 3pt;
+  text-indent: 0;
+  border: solid var(--clr-table-border) 0.4pt;
+}
+div.fbox { display: table; }
+
+.framebox-c,
+.framebox-l,
+.framebox-r {
+  padding-left: 3pt;
+  padding-right: 3pt;
+  text-indent: 0;
+  border: solid var(--clr-table-border) 0.4pt;
+}
+.framebox-c { text-align: center; }
+.framebox-l { text-align: left; }
+.framebox-r { text-align: right; }
+
+/* --------------------------------------------------------------------------
+   16. CROSSLINKS / FOOTNOTES
+   -------------------------------------------------------------------------- */
+@media print {
+  div.crosslinks { visibility: hidden; }
+}
+
+span.footnote-mark sup.textsuperscript,
+span.footnote-mark a sup.textsuperscript {
+  font-size: 80%;
+}
+span.thank-mark {
+  vertical-align: super;
+}
+
+/* --------------------------------------------------------------------------
+   17. MARGIN NOTES
+   -------------------------------------------------------------------------- */
+.marginpar,
+.reversemarginpar {
+  width: 20%;
+  float: right;
+  text-align: left;
+  margin-left: auto;
+  margin-top: 0.5em;
+  font-size: 85%;
+  text-decoration: underline;
+  color: var(--clr-text-light);
+}
+.marginpar p,
+.reversemarginpar p {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}
+.reversemarginpar {
+  float: left;
+}
+
+/* --------------------------------------------------------------------------
+   18. STRONG / EMPHASIS (LaTeX font classes from htlatex)
+   -------------------------------------------------------------------------- */
+.ecbx-1095,
+.ecbx-1000,
+.ecbx-2488,
+[class*="ecbx-"] {
+  font-weight: 700;
+}
+
+.ecti-1095,
+[class*="ecti-"] {
+  font-style: italic;
+}
+
+.ecbi-1095,
+[class*="ecbi-"] {
+  font-weight: 700;
+  font-style: italic;
+}
+
+.ectt-1095,
+[class*="ectt-"] {
+  font-family: var(--font-mono);
+}
+
+/* --------------------------------------------------------------------------
+   19. MISCELLANEOUS ELEMENTS
+   -------------------------------------------------------------------------- */
+
+/* Minipage */
+div.minipage {
+  width: 100%;
+}
+
+/* Obeylines */
+.obeylines-h,
+.obeylines-v {
+  white-space: nowrap;
+}
+div.obeylines-v p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Display lines */
+td.displaylines {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Rotate box */
+.rotatebox {
+  display: inline-block;
+}
+
+/* Canvas */
+.Canvas {
+  position: relative;
+}
+
+/* Center element */
+center {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+td center {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Verse */
+.verse {
+  white-space: nowrap;
+  margin-left: 2em;
+}
+
+/* Tab cells from htlatex */
+div.td00 { margin-left: 0; margin-right: 0; }
+div.td01 { margin-left: 0; margin-right: 5pt; }
+div.td10 { margin-left: 5pt; margin-right: 0; }
+div.td11 { margin-left: 5pt; margin-right: 5pt; }
+td.td00 { padding-left: 0; padding-right: 0; }
+td.td01 { padding-left: 0; padding-right: 5pt; }
+td.td10 { padding-left: 5pt; padding-right: 0; }
+td.td11 { padding-left: 5pt; padding-right: 5pt; }
+
+/* Tabular p rules */
+table.tabular td p {
+  margin-top: 0;
+}
+td p:first-child {
+  margin-top: 0;
+}
+td p:last-child {
+  margin-bottom: 0;
+}
+
+/* hline spacing */
+.hline + .vspace:last-child {
+  display: none;
+}
+
+/* Tab alignment */
+.tabbing-right {
+  text-align: right;
+}
+
+/* Equation labels */
+td.equation-label,
+td.eqnarray4,
+td.eqnarray2 {
+  width: 5%;
+  text-align: center;
+}
+td.eqnarray4 {
+  white-space: normal;
+}
+td.align-label { width: 5%; text-align: center; }
+td.align-odd { text-align: right; padding-right: 0.3em; }
+td.align-even { text-align: left; padding-right: 0.6em; }
+
+/* Matrix environments */
+div.array,
+div.pmatrix,
+div.eqnarray {
+  text-align: center;
+}
+table.pmatrix { width: 100%; }
+span.pmatrix img { vertical-align: middle; }
+
+/* cdots image */
+img.cdots { vertical-align: middle; }
+
+/* Thanks note */
+div.thanks {
+  text-align: left;
+  margin-left: 10%;
+  font-size: 85%;
+  font-style: italic;
+  color: var(--clr-text-light);
+}
+
+/* Index items */
+.index-item,
+.index-subitem,
+.index-subsubitem {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   20. RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --fs-base: 16px;
+    --content-padding: var(--space-md);
+  }
+
+  body {
+    padding: var(--space-md) var(--space-sm) var(--space-2xl);
+  }
+
+  h1.partHead {
+    font-size: 1.7rem;
+    margin: var(--space-2xl) 0 var(--space-lg);
+  }
+
+  h2.chapterHead,
+  h2.likechapterHead {
+    font-size: 1.4rem;
+    margin: var(--space-2xl) 0 var(--space-md);
+  }
+
+  h3.sectionHead,
+  h3.likesectionHead {
+    font-size: 1.2rem;
+    padding-left: var(--space-sm);
+  }
+
+  h2.titleHead {
+    font-size: 1.5rem;
+  }
+
+  div.maketitle {
+    padding: var(--space-xl) var(--space-sm);
+    margin: var(--space-xl) 0;
+  }
+
+  div.tcolorbox .tcolorbox-title {
+    padding: 8px 12px;
+    font-size: 0.82rem;
+  }
+
+  div.tcolorbox .tcolorbox-content {
+    padding: 12px;
+  }
+
+  div.tableofcontents {
+    padding: var(--space-md);
+    font-size: 0.9rem;
+  }
+
+  img[src^="main"][src$=".svg"],
+  img[src*="x.svg"] {
+    margin: var(--space-lg) auto;
+  }
+
+  table.tabular {
+    font-size: 0.82rem;
+  }
+  table.tabular td,
+  table.tabular th {
+    padding: 6px 10px;
+  }
+
+  .marginpar,
+  .reversemarginpar {
+    float: none;
+    width: auto;
+    margin: var(--space-md) 0;
+    padding: var(--space-sm);
+    border-left: 3px solid var(--clr-text-muted);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --fs-base: 15px;
+  }
+
+  h1.partHead {
+    font-size: 1.5rem;
+  }
+
+  h2.chapterHead,
+  h2.likechapterHead {
+    font-size: 1.25rem;
+  }
+
+  h3.sectionHead,
+  h3.likesectionHead {
+    font-size: 1.1rem;
+    border-left-width: 3px;
+    padding-left: 8px;
+  }
+
+  div.tcolorbox {
+    border-left-width: 4px;
+  }
+
+  div.tcolorbox .tcolorbox-title {
+    padding: 8px 10px;
+    font-size: 0.78rem;
+  }
+
+  div.tcolorbox .tcolorbox-content {
+    padding: 10px;
+  }
+
+  div.maketitle {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  h2.titleHead {
+    font-size: 1.3rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   21. PRINT STYLES
+   -------------------------------------------------------------------------- */
+@media print {
+  body {
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+    max-width: none;
+    padding: 0;
+  }
+
+  div.tcolorbox {
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+
+  div.maketitle {
+    background: none;
+    border-bottom: 1px solid #000;
+  }
+
+  img[src^="main"][src$=".svg"],
+  img[src*="x.svg"] {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  table.tabular {
+    box-shadow: none;
+  }
+
+  /* hide MathJax context menu for print */
+  .MathJax_Menu,
+  .MathJax_MenuButton {
+    display: none !important;
+  }
+}
